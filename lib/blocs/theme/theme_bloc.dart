@@ -21,10 +21,6 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
     on<LoadThemeEvent>(_handleLoad);
 
     _load(_repository.get());
-
-    // ThemeMediator().themeUpdated.stream.listen((event) {
-    //   add(event);
-    // });
   }
 
   @override
@@ -40,11 +36,6 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
 
   FutureOr<void> _handleLoad(LoadThemeEvent event, Emitter<ThemeState> emit) {
     emit(event.state);
-
-    // stream.listen((state) async {
-    //   await _repository.save(state);
-    // });
-    // ThemeMediator().themeUpdated.add(ThemeChangeEvent(event.state.theme));
   }
 
   FutureOr<void> _handleTheme(ThemeChangeEvent event, Emitter<ThemeState> emit) {
@@ -59,7 +50,6 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
     }
 
     ThemeState state = ThemeState.fromPreferences(preferences);
-    // add(LoadThemeEvent(state: state));
     add(ThemeChangeEvent(state.theme));
   }
 }

@@ -33,13 +33,6 @@ class ThemeState {
     }
 
     return FlutterI18n.translate(context, 'theme_${themeV.name}');
-    // if (theme.toString() == AppTheme.blue) {
-    //   return AppLocalizations.of(context)!.theme_blue;
-    // }
-    // if (theme == AppTheme.red) {
-    //   return AppLocalizations.of(context)!.theme_red;
-    // }
-    // return '';
   }
 
   SharedPreferencesModel toPreferences(SharedPreferencesModel preferences) {
