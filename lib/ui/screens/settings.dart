@@ -14,7 +14,7 @@ abstract class SettingsScreen extends StatelessWidget {
 
   String theme(BuildContext context) {
     // title: AppLocalizations.of(context)!.theme,
-    return FlutterI18n.translate(context, 'theme');
+    return FlutterI18n.translate(context, 'title_theme');
   }
 
   String title(BuildContext context) {

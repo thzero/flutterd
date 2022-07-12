@@ -96,7 +96,7 @@ class StandardThemeTypes extends ThemeTypes {
   @override
   init() {
     add(0, 'blue', FlexScheme.blue);
-    add(1, 'green', FlexScheme.blue);
+    add(1, 'green', FlexScheme.green);
     add(2, 'orange', FlexScheme.gold);
     add(3, 'red', FlexScheme.red);
     add(4, 'purple', FlexScheme.indigo);

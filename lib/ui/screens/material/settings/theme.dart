@@ -24,7 +24,7 @@ class MaterialThemeSettingsScreen extends StatelessWidget {
   List<SettingsSection> _sections(BuildContext context, ThemeState state) {
     // SettingsSection(title: AppLocalizations.of(context)!.theme, tiles: _tilesThemes(context, state))
     List<SettingsSection> output = [];
-    output.add(SettingsSection(title: FlutterI18n.translate(context, 'theme'), tiles: _tilesThemes(context, state)));
+    output.add(SettingsSection(title: FlutterI18n.translate(context, 'title_theme'), tiles: _tilesThemes(context, state)));
     output.addAll(_sectionsAdditional);
     return output;
   }
@@ -32,8 +32,8 @@ class MaterialThemeSettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: AppBar(title: Text(AppLocalizations.of(context)!.units)),
-        appBar: AppBar(title: Text(FlutterI18n.translate(context, 'units'))),
+        // appBar: AppBar(title: Text(AppLocalizations.of(context)!.themes)),
+        appBar: AppBar(title: Text(FlutterI18n.translate(context, 'title_themes'))),
         body: BlocBuilder<ThemeBloc, ThemeState>(
           buildWhen: (previousState, state) {
             return true;
@@ -41,12 +41,7 @@ class MaterialThemeSettingsScreen extends StatelessWidget {
           builder: (context, state) {
             return Container(
               padding: const EdgeInsets.only(top: 5),
-              child: SettingsList(sections: _sections(context, state)
-                  // [
-                  //   // SettingsSection(title: AppLocalizations.of(context)!.theme, tiles: _tilesThemes(context, state))
-                  //   SettingsSection(title: FlutterI18n.translate(context, 'theme'), tiles: _tilesThemes(context, state))
-                  // ]),
-                  ),
+              child: SettingsList(sections: _sections(context, state)),
             );
           },
         ));
@@ -62,7 +57,7 @@ class MaterialThemeSettingsScreen extends StatelessWidget {
     ThemesConfiguration.themes.forEach((key, value) {
       list.add(SettingsTile(
         // title: AppLocalizations.of(context)!.theme_blue,
-        title: FlutterI18n.translate(context, 'theme_$value'),
+        title: FlutterI18n.translate(context, 'theme_${value.name}'),
         trailing: _trailingWidget(state, key),
         onPressed: (BuildContext context) {
           _changeTheme(context, key);
