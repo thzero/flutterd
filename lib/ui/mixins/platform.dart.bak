@@ -90,13 +90,3 @@ mixin PlatformMixin {
 
   TextStyle? textStyleText(BuildContext context);
 }
-
-typedef PopupMenuItem2Selected = void Function(PopupMenuItem2 value);
-
-class PopupMenuItem2 {
-  final String title;
-  final IconData? icon;
-  final PopupMenuItem2Selected? onSelected;
-
-  const PopupMenuItem2(this.title, this.icon, this.onSelected);
-}

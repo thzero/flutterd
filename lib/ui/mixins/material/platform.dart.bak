@@ -15,7 +15,7 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  Widget constructButton(BuildContext context, VoidCallback? onPressed, String title, {bool disabled = false}) {
+  Widget constructButton(BuildContext context, VoidCallback? onPressed, String title, {bool disabled = false) {
     return ElevatedButton(
       onPressed: onPressed,
       child: Text(title),
@@ -23,7 +23,7 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  Widget constructButtonIcon(BuildContext context, VoidCallback? onPressed, String iconType, {bool disabled = false}) {
+  Widget constructButtonIcon(BuildContext context, VoidCallback? onPressed, String iconType, {bool disabled = false) {
     IconData icon = determineIcon(iconType);
     return IconButton(
       icon: Icon(icon),
@@ -361,7 +361,6 @@ mixin MaterialPlatformMixin on PlatformMixin {
           );
         });
     return identifier;
-  }
 
   @override
   TextStyle? textStyleHeading(BuildContext context) {
