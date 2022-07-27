@@ -32,10 +32,20 @@ class MaterialSettingsScreen extends SettingsScreen {
                   ));
                 },
               ),
-            ])
+              ...constructCommonTilesSettingsSection(context)
+            ]),
+            ...constructSettingsSections(context)
           ]),
         );
       }),
     );
+  }
+
+  List<SettingsSection> constructSettingsSections(BuildContext context) {
+    return [];
+  }
+
+  List<SettingsTile> constructCommonTilesSettingsSection(BuildContext context) {
+    return [];
   }
 }
