@@ -9,6 +9,7 @@ import 'package:tap_debouncer/tap_debouncer.dart';
 import 'package:thzero_library/ui/navigation_bar_menu.dart';
 
 mixin PlatformMixin {
+  static const String iconAdd = 'add';
   static const String iconArrowUp = 'arrow_upward';
   static const String iconArrowLeftDirectory = 'subdirectory_arrow_left';
   static const String iconArrowRightDirectory = 'subdirectory_arrow_right';

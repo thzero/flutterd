@@ -248,6 +248,11 @@ mixin MaterialPlatformMixin on PlatformMixin {
   IconData determineIcon(String iconType) {
     IconData? icon;
     switch (iconType) {
+      case PlatformMixin.iconAdd:
+        {
+          icon = Icons.add;
+          break;
+        }
       case PlatformMixin.iconArrowUp:
         {
           icon = Icons.arrow_upward;
