@@ -273,6 +273,11 @@ mixin MaterialPlatformMixin on PlatformMixin {
           icon = Icons.arrow_downward;
           break;
         }
+      case PlatformMixin.iconClose:
+        {
+          icon = Icons.close;
+          break;
+        }
       case PlatformMixin.iconDelete:
         {
           icon = Icons.delete;

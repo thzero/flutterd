@@ -14,6 +14,7 @@ mixin PlatformMixin {
   static const String iconArrowLeftDirectory = 'subdirectory_arrow_left';
   static const String iconArrowRightDirectory = 'subdirectory_arrow_right';
   static const String iconArrowDown = 'arrow_downward';
+  static const String iconClose = 'close';
   static const String iconDelete = 'delete';
   static const String iconEdit = 'edit';
   static const String iconMoreVert = 'moreVert';
