@@ -14,6 +14,7 @@ mixin PlatformMixin {
   static const String iconArrowLeftDirectory = 'subdirectory_arrow_left';
   static const String iconArrowRightDirectory = 'subdirectory_arrow_right';
   static const String iconArrowDown = 'arrow_downward';
+  static const String iconCheck = 'check';
   static const String iconClose = 'close';
   static const String iconDelete = 'delete';
   static const String iconEdit = 'edit';
@@ -22,6 +23,7 @@ mixin PlatformMixin {
   static const String iconPlay = 'play';
   static const String iconReadMore = 'readMore';
   static const String iconReorder = 'reorder';
+  static const String iconStart = 'start';
   static const String iconStop = 'stop';
 
   Color colorHyperlink(BuildContext context);

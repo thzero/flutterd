@@ -273,6 +273,11 @@ mixin MaterialPlatformMixin on PlatformMixin {
           icon = Icons.arrow_downward;
           break;
         }
+      case PlatformMixin.iconCheck:
+        {
+          icon = Icons.check;
+          break;
+        }
       case PlatformMixin.iconClose:
         {
           icon = Icons.close;
@@ -311,6 +316,11 @@ mixin MaterialPlatformMixin on PlatformMixin {
       case PlatformMixin.iconReorder:
         {
           icon = Icons.reorder;
+          break;
+        }
+      case PlatformMixin.iconStart:
+        {
+          icon = Icons.start;
           break;
         }
       case PlatformMixin.iconStop:
