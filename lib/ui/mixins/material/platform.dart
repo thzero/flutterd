@@ -165,7 +165,7 @@ mixin MaterialPlatformMixin on PlatformMixin {
 
   @override
   Widget constructInputTextArea<T extends TextFieldBloc<dynamic>>(BuildContext context, T value, String title, String? hint,
-      {int maxLines = 5, int minLines = 1, int maxLength = 500, MaxLengthEnforcement maxLengthEnforced = MaxLengthEnforcement.enforced, bool readOnly = false}) {
+      {int maxLines = 5, int minLines = 1, int? maxLength = 500, MaxLengthEnforcement maxLengthEnforced = MaxLengthEnforcement.enforced, bool readOnly = false}) {
     return TextFieldBlocBuilder(
       textFieldBloc: value,
       maxLines: maxLines,
@@ -306,6 +306,16 @@ mixin MaterialPlatformMixin on PlatformMixin {
       case PlatformMixin.iconPlay:
         {
           icon = Icons.play_arrow;
+          break;
+        }
+      case PlatformMixin.iconRadioCheck:
+        {
+          icon = Icons.radio_button_checked;
+          break;
+        }
+      case PlatformMixin.iconRadioUncheck:
+        {
+          icon = Icons.radio_button_unchecked;
           break;
         }
       case PlatformMixin.iconReadMore:

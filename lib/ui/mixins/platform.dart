@@ -21,6 +21,8 @@ mixin PlatformMixin {
   static const String iconMoreVert = 'moreVert';
   static const String iconPause = 'pause';
   static const String iconPlay = 'play';
+  static const String iconRadioCheck = 'radioCheck';
+  static const String iconRadioUncheck = 'radioUncheck';
   static const String iconReadMore = 'readMore';
   static const String iconReorder = 'reorder';
   static const String iconStart = 'start';
@@ -45,7 +47,7 @@ mixin PlatformMixin {
   Widget constructInputNumberDecimal<T extends TextFieldBloc<dynamic>>(BuildContext context, T value, String title, String? hint, {bool signed = false, bool readOnly = false});
   Widget constructInputText<T extends TextFieldBloc<dynamic>>(BuildContext context, T value, String title, String? hint, {bool readOnly = false});
   Widget constructInputTextArea<T extends TextFieldBloc<dynamic>>(BuildContext context, T value, String title, String? hint,
-      {int maxLines = 5, int minLines = 1, int maxLength = 500, MaxLengthEnforcement maxLengthEnforced = MaxLengthEnforcement.enforced, bool readOnly = false});
+      {int maxLines = 5, int minLines = 1, int? maxLength = 500, MaxLengthEnforcement maxLengthEnforced = MaxLengthEnforcement.enforced, bool readOnly = false});
   Widget constructNavigationBarMenu(BuildContext context);
   constructNavigationBarMenuSelected(BuildContext context, NavigationBarMenuItem value) {
     Navigator.pushNamed(context, value.route);
