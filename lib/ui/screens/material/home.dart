@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:fluttered/blocs/tabs/events/updated.dart';
-import 'package:fluttered/blocs/tabs/tab_bloc.dart';
-import 'package:fluttered/blocs/tabs/tab_state.dart';
-import 'package:fluttered/ui/mixins/material/platform.dart';
-import 'package:fluttered/ui/navigation_bar_tabs.dart';
-import 'package:fluttered/ui/screens/home.dart';
-import 'package:fluttered/ui/widgets/material/navigation_tab_selector.dart';
+import 'package:flutterd/blocs/tabs/events/updated.dart';
+import 'package:flutterd/blocs/tabs/tab_bloc.dart';
+import 'package:flutterd/blocs/tabs/tab_state.dart';
+import 'package:flutterd/ui/mixins/material/platform.dart';
+import 'package:flutterd/ui/navigation_bar_tabs.dart';
+import 'package:flutterd/ui/screens/home.dart';
+import 'package:flutterd/ui/widgets/material/navigation_tab_selector.dart';
 
 class MaterialHomeScreen extends HomeScreen with MaterialPlatformMixin {
   const MaterialHomeScreen({Key? key}) : super(key: key);

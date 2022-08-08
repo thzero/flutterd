@@ -3,13 +3,13 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:flutterd_logging_wrapper/logging.dart';
 
-import 'package:fluttered/blocs/theme/events/load.dart';
-import 'package:fluttered/blocs/theme/mediator.dart';
-import 'package:fluttered/blocs/theme/events/theme.dart';
-import 'package:fluttered/blocs/theme/theme_state.dart';
-import 'package:fluttered/models/shared_preferences.dart';
-import 'package:fluttered/models/themes_configuration.dart';
-import 'package:fluttered/repositories/shared_preferences.dart';
+import 'package:flutterd/blocs/theme/events/load.dart';
+import 'package:flutterd/blocs/theme/mediator.dart';
+import 'package:flutterd/blocs/theme/events/theme.dart';
+import 'package:flutterd/blocs/theme/theme_state.dart';
+import 'package:flutterd/models/shared_preferences.dart';
+import 'package:flutterd/models/themes_configuration.dart';
+import 'package:flutterd/repositories/shared_preferences.dart';
 
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   final SharedPreferencesRepository _repository;

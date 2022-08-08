@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'package:webview_flutter/webview_flutter.dart';
 
-import 'package:fluttered/ui/screens/opensource.dart';
+import 'package:flutterd/ui/screens/opensource.dart';
 
 class MaterialOpenSourceScreen extends OpenSourceScreen {
   const MaterialOpenSourceScreen(List<dynamic> listing, Completer<WebViewController> controller, {Key? key}) : super(controller: controller, listing: listing, key: key);

@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:fluttered/blocs/theme/events/theme.dart';
+import 'package:flutterd/blocs/theme/events/theme.dart';
 
 class ThemeMediator {
   static final StreamController<ThemeChangeEvent> _themeUpdate = StreamController<ThemeChangeEvent>();

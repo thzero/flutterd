@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_settings_ui/flutter_settings_ui.dart';
 
-import 'package:fluttered/blocs/theme/theme_bloc.dart';
-import 'package:fluttered/blocs/theme/theme_state.dart';
-import 'package:fluttered/ui/screens/material/settings/theme.dart';
-import 'package:fluttered/ui/screens/settings.dart';
+import 'package:flutterd/blocs/theme/theme_bloc.dart';
+import 'package:flutterd/blocs/theme/theme_state.dart';
+import 'package:flutterd/ui/screens/material/settings/theme.dart';
+import 'package:flutterd/ui/screens/settings.dart';
 
 class MaterialSettingsScreen extends SettingsScreen {
   const MaterialSettingsScreen({Key? key}) : super(key: key);

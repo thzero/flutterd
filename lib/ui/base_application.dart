@@ -2,11 +2,11 @@ import 'dart:io' show Platform;
 
 import 'package:flutter/widgets.dart';
 
-import 'package:fluttered/models/themes_configuration.dart';
-import 'package:fluttered/ui/base_application_factory.dart';
-import 'package:fluttered/ui/navigation_bar_tabs.dart';
-import 'package:fluttered/ui/navigation_bar_menu.dart';
-import 'package:fluttered/ui/widgets/base_application.dart';
+import 'package:flutterd/models/themes_configuration.dart';
+import 'package:flutterd/ui/base_application_factory.dart';
+import 'package:flutterd/ui/navigation_bar_tabs.dart';
+import 'package:flutterd/ui/navigation_bar_menu.dart';
+import 'package:flutterd/ui/widgets/base_application.dart';
 
 // import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

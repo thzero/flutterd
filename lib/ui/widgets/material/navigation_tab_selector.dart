@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:fluttered/ui/mixins/material/platform.dart';
-import 'package:fluttered/ui/navigation_bar_tabs.dart';
-import 'package:fluttered/ui/widgets/base_navigation_tab_selector.dart';
+import 'package:flutterd/ui/mixins/material/platform.dart';
+import 'package:flutterd/ui/navigation_bar_tabs.dart';
+import 'package:flutterd/ui/widgets/base_navigation_tab_selector.dart';
 
 // import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import 'package:fluttered/ui/mixins/platform.dart';
+import 'package:flutterd/ui/mixins/platform.dart';
 
 enum AppTypes { cupertino, material }
 

@@ -2,13 +2,13 @@ import 'dart:async';
 
 import 'package:webview_flutter/webview_flutter.dart';
 
-import 'package:fluttered/ui/screens/help.dart';
-import 'package:fluttered/ui/screens/home.dart';
-import 'package:fluttered/ui/screens/material/home.dart';
-import 'package:fluttered/ui/screens/material/help.dart';
-import 'package:fluttered/ui/screens/material/opensource.dart';
-import 'package:fluttered/ui/screens/opensource.dart';
-import 'package:fluttered/ui/mixins/base_application_factory.dart';
+import 'package:flutterd/ui/screens/help.dart';
+import 'package:flutterd/ui/screens/home.dart';
+import 'package:flutterd/ui/screens/material/home.dart';
+import 'package:flutterd/ui/screens/material/help.dart';
+import 'package:flutterd/ui/screens/material/opensource.dart';
+import 'package:flutterd/ui/screens/opensource.dart';
+import 'package:flutterd/ui/mixins/base_application_factory.dart';
 
 mixin MaterialApplicationFactoryPlatformMixin on BaseApplicationFactoryPlatformMixin {
   @override
