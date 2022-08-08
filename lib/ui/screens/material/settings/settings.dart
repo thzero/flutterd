@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_settings_ui/flutter_settings_ui.dart';
 
-import 'package:thzero_library/blocs/theme/theme_bloc.dart';
-import 'package:thzero_library/blocs/theme/theme_state.dart';
-import 'package:thzero_library/ui/screens/material/settings/theme.dart';
-import 'package:thzero_library/ui/screens/settings.dart';
+import 'package:fluttered/blocs/theme/theme_bloc.dart';
+import 'package:fluttered/blocs/theme/theme_state.dart';
+import 'package:fluttered/ui/screens/material/settings/theme.dart';
+import 'package:fluttered/ui/screens/settings.dart';
 
 class MaterialSettingsScreen extends SettingsScreen {
   const MaterialSettingsScreen({Key? key}) : super(key: key);

@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:mutex/mutex.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:thzero_library/models/shared_preferences.dart';
-import 'package:thzero_library/repositories/repository.dart';
+import 'package:fluttered/models/shared_preferences.dart';
+import 'package:fluttered/repositories/repository.dart';
 
 abstract class SharedPreferencesRepository<T extends SharedPreferencesModel> implements RepositoryItem<T> {
   // Key is used to access store

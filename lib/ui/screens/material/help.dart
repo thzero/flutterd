@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:webview_flutter/webview_flutter.dart';
 
-import 'package:thzero_library/ui/screens/help.dart';
+import 'package:fluttered/ui/screens/help.dart';
 
 class MaterialHelpScreen extends HelpScreen {
   const MaterialHelpScreen(Completer<WebViewController> controller, {Key? key}) : super(controller: controller, key: key);

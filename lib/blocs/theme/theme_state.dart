@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
-import 'package:thzero_library/models/shared_preferences.dart';
-import 'package:thzero_library/models/themes_configuration.dart';
+import 'package:fluttered/models/shared_preferences.dart';
+import 'package:fluttered/models/themes_configuration.dart';
 
 class ThemeState {
   final int theme;

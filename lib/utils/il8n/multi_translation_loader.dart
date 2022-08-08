@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 
 import 'package:flutter_i18n/loaders/file_translation_loader.dart';
 
-import 'package:thzero_library/utils/il8n/cached_network_translation_loader.dart';
+import 'package:fluttered/utils/il8n/cached_network_translation_loader.dart';
 
 class MultiTranslationLoader extends FileTranslationLoader {
   late CachedNetworkFileTranslationLoader _networkFileTranslationLoader;

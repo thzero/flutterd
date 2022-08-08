@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "thzero_library",
+            "name": "fluttered",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "thzero_library (profile mode)",
+            "name": "fluttered (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "thzero_library (release mode)",
+            "name": "fluttered (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

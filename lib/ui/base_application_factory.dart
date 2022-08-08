@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:thzero_library/ui/mixins/base_application_factory.dart';
-import 'package:thzero_library/ui/navigation_bar_menu.dart';
-import 'package:thzero_library/ui/navigation_bar_tabs.dart';
-import 'package:thzero_library/ui/widgets/base_application.dart';
+import 'package:fluttered/ui/mixins/base_application_factory.dart';
+import 'package:fluttered/ui/navigation_bar_menu.dart';
+import 'package:fluttered/ui/navigation_bar_tabs.dart';
+import 'package:fluttered/ui/widgets/base_application.dart';
 
 abstract class BaseApplicationFactory with BaseApplicationFactoryPlatformMixin {
   init();

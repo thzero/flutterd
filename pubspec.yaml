@@ -1,5 +1,5 @@
-name: thzero_library
-description: Opinionated library for building thZero apps.
+name: fluttered
+description: Opinionated library for building Flutter applications.
 version: 0.0.1
 
 # The following line prevents the package from being accidentally published to

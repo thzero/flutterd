@@ -4,10 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:flutter_settings_ui/flutter_settings_ui.dart';
 
-import 'package:thzero_library/blocs/theme/events/theme.dart';
-import 'package:thzero_library/blocs/theme/theme_bloc.dart';
-import 'package:thzero_library/blocs/theme/theme_state.dart';
-import 'package:thzero_library/models/themes_configuration.dart';
+import 'package:fluttered/blocs/theme/events/theme.dart';
+import 'package:fluttered/blocs/theme/theme_bloc.dart';
+import 'package:fluttered/blocs/theme/theme_state.dart';
+import 'package:fluttered/models/themes_configuration.dart';
 
 // import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import 'package:thzero_library/ui/navigator_settings.dart';
+import 'package:fluttered/ui/navigator_settings.dart';
 
 abstract class NavigatorService {
   static final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();

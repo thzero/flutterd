@@ -6,7 +6,7 @@ import 'package:flutter_i18n/flutter_i18n.dart';
 
 import 'package:tap_debouncer/tap_debouncer.dart';
 
-import 'package:thzero_library/ui/navigation_bar_menu.dart';
+import 'package:fluttered/ui/navigation_bar_menu.dart';
 
 mixin PlatformMixin {
   static const String iconAdd = 'add';

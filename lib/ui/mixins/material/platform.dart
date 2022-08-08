@@ -5,8 +5,8 @@ import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:tap_debouncer/tap_debouncer.dart';
 
-import 'package:thzero_library/ui/mixins/platform.dart';
-import 'package:thzero_library/ui/navigation_bar_menu.dart';
+import 'package:fluttered/ui/mixins/platform.dart';
+import 'package:fluttered/ui/navigation_bar_menu.dart';
 
 mixin MaterialPlatformMixin on PlatformMixin {
   @override
