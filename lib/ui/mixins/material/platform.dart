@@ -188,6 +188,7 @@ mixin MaterialPlatformMixin on PlatformMixin {
           return PopupMenuItem<NavigationBarMenuItem>(
             value: item,
             child: ListTile(
+              dense: true,
               trailing: item.icon != null ? Icon(item.icon) : null,
               title: Text(NavigationBarMenu.title(context, item.title)),
             ),
