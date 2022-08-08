@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:logging_wrapper/logging.dart';
+import 'package:flutter_library_logging_wrapper/logging.dart';
 
 import 'package:thzero_library/blocs/theme/events/load.dart';
 import 'package:thzero_library/blocs/theme/mediator.dart';
