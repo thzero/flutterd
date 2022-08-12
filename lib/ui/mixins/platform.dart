@@ -17,6 +17,7 @@ mixin PlatformMixin {
   static const String iconCamera = 'camera';
   static const String iconCheck = 'check';
   static const String iconClose = 'close';
+  static const String iconColor = 'color';
   static const String iconDelete = 'delete';
   static const String iconEdit = 'edit';
   static const String iconMoreVert = 'moreVert';

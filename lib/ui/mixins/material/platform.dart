@@ -279,6 +279,11 @@ mixin MaterialPlatformMixin on PlatformMixin {
           icon = Icons.camera;
           break;
         }
+      case PlatformMixin.iconColor:
+        {
+          icon = Icons.colorize;
+          break;
+        }
       case PlatformMixin.iconCheck:
         {
           icon = Icons.check;
