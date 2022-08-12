@@ -14,12 +14,15 @@ mixin PlatformMixin {
   static const String iconArrowLeftDirectory = 'subdirectory_arrow_left';
   static const String iconArrowRightDirectory = 'subdirectory_arrow_right';
   static const String iconArrowDown = 'arrow_downward';
+  static const String iconCamera = 'camera';
   static const String iconCheck = 'check';
   static const String iconClose = 'close';
   static const String iconDelete = 'delete';
   static const String iconEdit = 'edit';
   static const String iconMoreVert = 'moreVert';
   static const String iconPause = 'pause';
+  static const String iconPhoto = 'photo';
+  static const String iconPhotoAlbum = 'photoAlbum';
   static const String iconPlay = 'play';
   static const String iconRadioCheck = 'radioCheck';
   static const String iconRadioUncheck = 'radioUncheck';
@@ -33,7 +36,7 @@ mixin PlatformMixin {
   Widget constructButtonIcon(BuildContext context, VoidCallback? onPressed, String iconType, {bool disabled = false});
   Widget constructButtonTap(BuildContext context, TapDebouncerFunc? onTapFunc, String title, {int cooldown = 500, bool disabled = false});
   Widget constructButtonTapIcon(BuildContext context, TapDebouncerFunc? onTapFunc, String iconType, {int cooldown = 500, bool disabled = false});
-  StatelessWidget constructContainer(BuildContext context, Widget child);
+  StatelessWidget constructCard(BuildContext context, Widget child, {double? height, double? width});
   Widget constructDialogAlert(BuildContext context, Widget? content, List<Widget>? actions);
   constructDialogConfirm(
     BuildContext context, {

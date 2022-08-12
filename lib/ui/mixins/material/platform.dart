@@ -74,7 +74,7 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  StatelessWidget constructContainer(BuildContext context, Widget child) {
+  StatelessWidget constructCard(BuildContext context, Widget child, {double? height, double? width}) {
     return Card(child: child);
   }
 
@@ -274,6 +274,11 @@ mixin MaterialPlatformMixin on PlatformMixin {
           icon = Icons.arrow_downward;
           break;
         }
+      case PlatformMixin.iconCamera:
+        {
+          icon = Icons.camera;
+          break;
+        }
       case PlatformMixin.iconCheck:
         {
           icon = Icons.check;
@@ -302,6 +307,16 @@ mixin MaterialPlatformMixin on PlatformMixin {
       case PlatformMixin.iconPause:
         {
           icon = Icons.pause;
+          break;
+        }
+      case PlatformMixin.iconPhoto:
+        {
+          icon = Icons.photo;
+          break;
+        }
+      case PlatformMixin.iconPhotoAlbum:
+        {
+          icon = Icons.photo_album;
           break;
         }
       case PlatformMixin.iconPlay:
