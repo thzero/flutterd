@@ -33,7 +33,7 @@ mixin PlatformMixin {
   Widget constructButtonIcon(BuildContext context, VoidCallback? onPressed, String iconType, {bool disabled = false});
   Widget constructButtonTap(BuildContext context, TapDebouncerFunc? onTapFunc, String title, {int cooldown = 500, bool disabled = false});
   Widget constructButtonTapIcon(BuildContext context, TapDebouncerFunc? onTapFunc, String iconType, {int cooldown = 500, bool disabled = false});
-  StatelessWidget constructContainer(BuildContext context, Widget child);
+  StatelessWidget constructCard(BuildContext context, Widget child, {double? height, double? width});
   Widget constructDialogAlert(BuildContext context, Widget? content, List<Widget>? actions);
   constructDialogConfirm(
     BuildContext context, {

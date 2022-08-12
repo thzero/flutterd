@@ -74,7 +74,7 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  StatelessWidget constructContainer(BuildContext context, Widget child) {
+  StatelessWidget constructCard(BuildContext context, Widget child, {double? height, double? width}) {
     return Card(child: child);
   }
 
