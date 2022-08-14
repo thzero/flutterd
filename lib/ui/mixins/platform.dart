@@ -72,6 +72,7 @@ mixin PlatformMixin {
   IconData determineIcon(String iconType);
 
   showDialogAlert(BuildContext context, WidgetBuilder builder, Function(dynamic) onSuccess);
+  Future<Color?> showDialogColor(BuildContext context, {Color? previous, List<Color>? colors});
   Future<bool> showDialogConfirm(
     BuildContext context, {
     Widget? title,

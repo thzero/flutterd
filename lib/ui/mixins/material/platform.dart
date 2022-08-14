@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
@@ -7,6 +8,29 @@ import 'package:tap_debouncer/tap_debouncer.dart';
 
 import 'package:flutterd/ui/mixins/platform.dart';
 import 'package:flutterd/ui/navigation_bar_menu.dart';
+
+const List<Color> _colors = [
+  Colors.red,
+  Colors.pink,
+  Colors.purple,
+  Colors.deepPurple,
+  Colors.indigo,
+  Colors.blue,
+  Colors.lightBlue,
+  Colors.cyan,
+  Colors.teal,
+  Colors.green,
+  Colors.lightGreen,
+  Colors.lime,
+  Colors.yellow,
+  Colors.amber,
+  Colors.orange,
+  Colors.deepOrange,
+  Colors.brown,
+  Colors.grey,
+  Colors.blueGrey,
+  Colors.black,
+];
 
 mixin MaterialPlatformMixin on PlatformMixin {
   @override
@@ -375,6 +399,31 @@ mixin MaterialPlatformMixin on PlatformMixin {
   @override
   showDialogAlert(BuildContext context, WidgetBuilder builder, Function(dynamic) onSuccess) {
     showDialog(context: context, builder: builder).then(onSuccess);
+  }
+
+  @override
+  Future<Color?> showDialogColor(BuildContext context, {Color? previous, List<Color>? colors}) async {
+    Color? colorOutput;
+    await showDialog<Color>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Select a color'),
+          content: SingleChildScrollView(
+            child: BlockPicker(
+              pickerColor: Colors.transparent,
+              onColorChanged: (Color color) {
+                colorOutput = color;
+              },
+              availableColors: _colors,
+              // layoutBuilder: pickerLayoutBuilder,
+              // itemBuilder: pickerItemBuilder,
+            ),
+          ),
+        );
+      },
+    );
+    return colorOutput;
   }
 
   @override
