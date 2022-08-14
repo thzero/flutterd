@@ -17,6 +17,7 @@ mixin PlatformMixin {
   static const String iconCamera = 'camera';
   static const String iconCheck = 'check';
   static const String iconClose = 'close';
+  static const String iconColor = 'color';
   static const String iconDelete = 'delete';
   static const String iconEdit = 'edit';
   static const String iconMoreVert = 'moreVert';
@@ -28,6 +29,7 @@ mixin PlatformMixin {
   static const String iconRadioUncheck = 'radioUncheck';
   static const String iconReadMore = 'readMore';
   static const String iconReorder = 'reorder';
+  static const String iconSearch = 'search';
   static const String iconStart = 'start';
   static const String iconStop = 'stop';
 
@@ -70,6 +72,7 @@ mixin PlatformMixin {
   IconData determineIcon(String iconType);
 
   showDialogAlert(BuildContext context, WidgetBuilder builder, Function(dynamic) onSuccess);
+  Future<Color?> showDialogColor(BuildContext context, {Color? previous, List<Color>? colors});
   Future<bool> showDialogConfirm(
     BuildContext context, {
     Widget? title,

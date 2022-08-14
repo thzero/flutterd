@@ -7,6 +7,10 @@ class NavigationBarTabs {
     NavigationBarTabs.tabs = menuList;
   }
 
+  static bool hasSingle() {
+    return tabs.values().length == 1;
+  }
+
   static Key key() {
     return tabs.key();
   }

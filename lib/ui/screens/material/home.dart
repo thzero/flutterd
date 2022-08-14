@@ -17,20 +17,16 @@ class MaterialHomeScreen extends HomeScreen with MaterialPlatformMixin {
   Widget build(BuildContext context) {
     return BlocBuilder<TabBloc, TabState>(
       builder: (context, state) {
-        return constructScaffold(context, NavigationBarTabs.determineTabBody(state.tab), title(context),
-            bottomNavigationBar: MaterialNavigationTabSelectorWidget(
-              state.tab,
-              (tab) => BlocProvider.of<TabBloc>(context).add(TabUpdated(tab)),
-            ),
-            actions: <Widget>[
-              // IconButton(
-              //   icon: const Icon(Icons.search),
-              //   onPressed: () {
-              //     Navigator.pushNamed(context, AppRoutes.findDevice);
-              //   },
-              // ),
-              constructNavigationBarMenu(context),
-            ]);
+        return (NavigationBarTabs.hasSingle()
+            ? constructScaffold(context, NavigationBarTabs.determineTabBody(0), title(context))
+            : constructScaffold(context, NavigationBarTabs.determineTabBody(state.tab), title(context),
+                bottomNavigationBar: MaterialNavigationTabSelectorWidget(
+                  state.tab,
+                  (tab) => BlocProvider.of<TabBloc>(context).add(TabUpdated(tab)),
+                ),
+                actions: <Widget>[
+                    constructNavigationBarMenu(context),
+                  ]));
       },
     );
   }

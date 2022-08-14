@@ -22,7 +22,12 @@ abstract class BaseApplication {
     NavigationBarTabs.init(initNavigationBarTabs());
   }
 
+  Widget? initBody() {
+    return null;
+  }
+
   BaseNavigationBarMenu initNavigationBar();
+
   BaseNavigationBarTabs initNavigationBarTabs();
 
   static AppTypes get appType {
