@@ -29,6 +29,7 @@ mixin PlatformMixin {
   static const String iconRadioUncheck = 'radioUncheck';
   static const String iconReadMore = 'readMore';
   static const String iconReorder = 'reorder';
+  static const String iconSearch = 'search';
   static const String iconStart = 'start';
   static const String iconStop = 'stop';
 

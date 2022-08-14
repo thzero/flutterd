@@ -349,6 +349,11 @@ mixin MaterialPlatformMixin on PlatformMixin {
           icon = Icons.reorder;
           break;
         }
+      case PlatformMixin.iconSearch:
+        {
+          icon = Icons.search;
+          break;
+        }
       case PlatformMixin.iconStart:
         {
           icon = Icons.start;
