@@ -65,7 +65,7 @@ mixin PlatformMixin {
     bool fullscreenDialog = false,
   });
   Widget constructPopupMenu(BuildContext context, List<PopupMenuItem2> list);
-  StatefulWidget constructScaffold(BuildContext context, Widget body, String title, {Widget? bottomNavigationBar, List<Widget>? actions, Widget? actionButton});
+  StatefulWidget constructScaffold(BuildContext context, Widget body, String title, {Widget? bottomNavigationBar, List<Widget>? actions, Widget? actionButton, bool? resizeToAvoidBottomInset});
   Widget constructText(BuildContext context, String valueOrId, {bool isId = true});
   Widget constructTextHeader(BuildContext context, String valueOrId, {bool isId = true});
 
