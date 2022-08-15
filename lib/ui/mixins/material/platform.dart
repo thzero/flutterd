@@ -255,8 +255,8 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  StatefulWidget constructScaffold(BuildContext context, Widget body, String title, {Widget? bottomNavigationBar, List<Widget>? actions, Widget? actionButton}) {
-    return Scaffold(resizeToAvoidBottomInset: false, appBar: AppBar(title: Text(title), actions: actions), body: body, bottomNavigationBar: bottomNavigationBar, floatingActionButton: actionButton);
+  StatefulWidget constructScaffold(BuildContext context, Widget body, String title, {Widget? bottomNavigationBar, List<Widget>? actions, Widget? actionButton, bool? resizeToAvoidBottomInset}) {
+    return Scaffold(resizeToAvoidBottomInset: resizeToAvoidBottomInset ?? false, appBar: AppBar(title: Text(title), actions: actions), body: body, bottomNavigationBar: bottomNavigationBar, floatingActionButton: actionButton);
   }
 
   @override
