@@ -16,6 +16,7 @@ mixin PlatformMixin {
   static const String iconArrowDown = 'arrow_downward';
   static const String iconCamera = 'camera';
   static const String iconCheck = 'check';
+  static const String iconClear = 'clear';
   static const String iconClose = 'close';
   static const String iconColor = 'color';
   static const String iconDelete = 'delete';
