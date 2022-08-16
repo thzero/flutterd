@@ -12,24 +12,26 @@ import 'package:flutterd/ui/navigation_bar_menu.dart';
 const List<Color> _colors = [
   Colors.red,
   Colors.pink,
-  Colors.purple,
-  Colors.deepPurple,
-  Colors.indigo,
-  Colors.blue,
-  Colors.lightBlue,
-  Colors.cyan,
-  Colors.teal,
+  Colors.deepOrange,
+  Colors.amber,
+  Colors.orange,
+  Colors.yellow,
   Colors.green,
   Colors.lightGreen,
   Colors.lime,
-  Colors.yellow,
-  Colors.amber,
-  Colors.orange,
-  Colors.deepOrange,
+  Colors.teal,
+  Colors.cyan,
+  Colors.lightBlue,
+  Colors.blue,
+  Color(0xFF00008B),
+  Colors.indigo,
+  Colors.purple,
+  Colors.deepPurple,
   Colors.brown,
   Colors.grey,
-  Colors.blueGrey,
+  Color(0xFFC0C0C0),
   Colors.black,
+  Colors.white,
 ];
 
 mixin MaterialPlatformMixin on PlatformMixin {
@@ -140,6 +142,19 @@ mixin MaterialPlatformMixin on PlatformMixin {
       booleanFieldBloc: value,
       isEnabled: readOnly,
       body: Text(title),
+    );
+  }
+
+  @override
+  Widget constructInputColor<T extends InputFieldBloc<Color, dynamic>>(BuildContext context, T value, String title, String? hint, {bool signed = false, bool readOnly = false}) {
+    return ColorFieldBlocBuilder(
+      colorFieldBloc: value,
+      decoration: InputDecoration(labelText: title, hintText: hint),
+      animateWhenCanShow: false,
+      colorPicker: (BuildContext? context, Color? initial) {
+        return showDialogColor(context!, colors: _colors, previous: initial!);
+      },
+      initialColor: Colors.transparent,
     );
   }
 
@@ -408,7 +423,7 @@ mixin MaterialPlatformMixin on PlatformMixin {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Select a color'),
+          title: Text(FlutterI18n.translate(context, 'message_color_select')),
           content: SingleChildScrollView(
             child: BlockPicker(
               pickerColor: Colors.transparent,
@@ -420,6 +435,16 @@ mixin MaterialPlatformMixin on PlatformMixin {
               // itemBuilder: pickerItemBuilder,
             ),
           ),
+          actions: <Widget>[
+            TextButton(
+              child: Text(FlutterI18n.translate(context, 'button_cancel')),
+              onPressed: () => Navigator.pop(context, null),
+            ),
+            TextButton(
+              child: Text(FlutterI18n.translate(context, 'button_ok')),
+              onPressed: () => Navigator.pop(context, colorOutput),
+            ),
+          ],
         );
       },
     );

@@ -47,6 +47,7 @@ mixin PlatformMixin {
   });
   Widget constructDivider(BuildContext context);
   Widget constructInputCheckbox<T extends BooleanFieldBloc<dynamic>>(BuildContext context, T value, String title, {bool readOnly = true});
+  Widget constructInputColor<T extends InputFieldBloc<Color, dynamic>>(BuildContext context, T value, String title, String? hint, {bool readOnly = false});
   Widget constructInputDropdown<T extends ValueItemSelectFieldBloc<String, String, dynamic>>(BuildContext context, T value, String text, String hint, {bool readOnly = true});
   Widget constructInputNumber<T extends TextFieldBloc<dynamic>>(BuildContext context, T value, String title, String? hint, {bool signed = false, bool readOnly = false});
   Widget constructInputNumberDecimal<T extends TextFieldBloc<dynamic>>(BuildContext context, T value, String title, String? hint, {bool signed = false, bool readOnly = false});
