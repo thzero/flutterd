@@ -1,35 +1,38 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'dart:typed_data';
 
-import 'package:flutter_form_bloc/flutter_form_bloc.dart';
+import 'package:flutter/material.dart';
+
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:tap_debouncer/tap_debouncer.dart';
 
 import 'package:flutterd/ui/mixins/platform.dart';
 import 'package:flutterd/ui/navigation_bar_menu.dart';
 
-const List<Color> _colors = [
+const List<Color> colors = [
   Colors.red,
   Colors.pink,
-  Colors.purple,
-  Colors.deepPurple,
-  Colors.indigo,
-  Colors.blue,
-  Colors.lightBlue,
-  Colors.cyan,
-  Colors.teal,
+  Colors.deepOrange,
+  Colors.amber,
+  Colors.orange,
+  Colors.yellow,
   Colors.green,
   Colors.lightGreen,
   Colors.lime,
-  Colors.yellow,
-  Colors.amber,
-  Colors.orange,
-  Colors.deepOrange,
+  Colors.teal,
+  Colors.cyan,
+  Colors.lightBlue,
+  Colors.blue,
+  Color(0xFF00008B),
+  Colors.indigo,
+  Colors.purple,
+  Colors.deepPurple,
   Colors.brown,
   Colors.grey,
-  Colors.blueGrey,
+  Color(0xFFC0C0C0),
   Colors.black,
+  Colors.white,
 ];
 
 mixin MaterialPlatformMixin on PlatformMixin {
@@ -132,73 +135,6 @@ mixin MaterialPlatformMixin on PlatformMixin {
   @override
   Widget constructDivider(BuildContext context) {
     return const Divider();
-  }
-
-  @override
-  Widget constructInputCheckbox<T extends BooleanFieldBloc<dynamic>>(BuildContext context, T value, String title, {bool readOnly = true}) {
-    return CheckboxFieldBlocBuilder(
-      booleanFieldBloc: value,
-      isEnabled: readOnly,
-      body: Text(title),
-    );
-  }
-
-  @override
-  Widget constructInputDropdown<T extends ValueItemSelectFieldBloc<String, String, dynamic>>(BuildContext context, T value, String text, String hint, {bool readOnly = true}) {
-    return ValueItemDropdownFieldBlocBuilder<String, String>(
-      selectFieldBloc: value,
-      decoration: InputDecoration(
-        // filled: true,
-        hintText: hint,
-        labelText: text,
-      ),
-      itemBuilder: (context, value) => FieldItem(
-        child: Text(value),
-      ),
-    );
-  }
-
-  @override
-  Widget constructInputNumber<T extends TextFieldBloc<dynamic>>(BuildContext context, T value, String title, String? hint, {bool signed = false, bool readOnly = false}) {
-    return TextFieldBlocBuilder(
-      textFieldBloc: value,
-      readOnly: readOnly,
-      keyboardType: TextInputType.numberWithOptions(signed: signed, decimal: false),
-      decoration: InputDecoration(labelText: title, hintText: hint),
-    );
-  }
-
-  @override
-  Widget constructInputNumberDecimal<T extends TextFieldBloc<dynamic>>(BuildContext context, T value, String title, String? hint, {bool signed = false, bool readOnly = false}) {
-    return TextFieldBlocBuilder(
-      textFieldBloc: value,
-      readOnly: readOnly,
-      keyboardType: TextInputType.numberWithOptions(signed: signed, decimal: true),
-      decoration: InputDecoration(labelText: title, hintText: hint),
-    );
-  }
-
-  @override
-  Widget constructInputText<T extends TextFieldBloc<dynamic>>(BuildContext context, T value, String title, String? hint, {bool readOnly = false}) {
-    return TextFieldBlocBuilder(
-      textFieldBloc: value,
-      readOnly: readOnly,
-      decoration: InputDecoration(labelText: title, hintText: hint),
-    );
-  }
-
-  @override
-  Widget constructInputTextArea<T extends TextFieldBloc<dynamic>>(BuildContext context, T value, String title, String? hint,
-      {int maxLines = 5, int minLines = 1, int? maxLength = 500, MaxLengthEnforcement maxLengthEnforced = MaxLengthEnforcement.enforced, bool readOnly = false}) {
-    return TextFieldBlocBuilder(
-      textFieldBloc: value,
-      maxLines: maxLines,
-      minLines: minLines,
-      maxLength: maxLength,
-      maxLengthEnforced: maxLengthEnforced,
-      readOnly: readOnly,
-      decoration: InputDecoration(labelText: title, hintText: hint),
-    );
   }
 
   @override
@@ -313,6 +249,11 @@ mixin MaterialPlatformMixin on PlatformMixin {
           icon = Icons.check;
           break;
         }
+      case PlatformMixin.iconClear:
+        {
+          icon = Icons.clear;
+          break;
+        }
       case PlatformMixin.iconClose:
         {
           icon = Icons.close;
@@ -402,24 +343,34 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  Future<Color?> showDialogColor(BuildContext context, {Color? previous, List<Color>? colors}) async {
+  Future<Color?> showDialogColor(BuildContext context, {Color? previous, List<Color>? colorsOverride}) async {
     Color? colorOutput;
     await showDialog<Color>(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Select a color'),
+          title: Text(FlutterI18n.translate(context, 'message_color_select')),
           content: SingleChildScrollView(
             child: BlockPicker(
               pickerColor: Colors.transparent,
               onColorChanged: (Color color) {
                 colorOutput = color;
               },
-              availableColors: _colors,
+              availableColors: colorsOverride ?? colors,
               // layoutBuilder: pickerLayoutBuilder,
               // itemBuilder: pickerItemBuilder,
             ),
           ),
+          actions: <Widget>[
+            TextButton(
+              child: Text(FlutterI18n.translate(context, 'button_cancel')),
+              onPressed: () => Navigator.pop(context, null),
+            ),
+            TextButton(
+              child: Text(FlutterI18n.translate(context, 'button_ok')),
+              onPressed: () => Navigator.pop(context, colorOutput),
+            ),
+          ],
         );
       },
     );
@@ -443,6 +394,16 @@ mixin MaterialPlatformMixin on PlatformMixin {
       ),
     );
     return isConfirm ?? false;
+  }
+
+  @override
+  Future<Uint8List?> showDialogImage(BuildContext context, {Uint8List? previous}) async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? photo = await picker.pickImage(source: ImageSource.camera);
+    if (photo != null) {
+      return await photo.readAsBytes();
+    }
+    return null;
   }
 
   @override
