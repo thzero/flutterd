@@ -35,17 +35,15 @@ dependencies:
   flex_color_scheme: ^5.1.0
   flutter_layout_grid: ^2.0.1
   flutter_settings_ui: ^2.0.1
-  # flutter_form_bloc: ^0.30.1
-  flutter_form_bloc:
-    path: ../form_bloc/packages/flutter_form_bloc
   tap_debouncer: ^2.0.2
   webview_flutter: ^3.0.4
   url_launcher: ^6.1.5
+  image_picker: ^0.8.5+3
+  flutter_colorpicker: ^1.0.3
   
   flutter_localizations: # add this line
     sdk: flutter 
   intl: ^0.17.0   
-  flutter_colorpicker: ^1.0.3
 
 dev_dependencies:
   flutter_test:

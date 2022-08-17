@@ -1,7 +1,7 @@
-import 'package:flutter/services.dart';
+import 'dart:typed_data';
+
 import 'package:flutter/widgets.dart';
 
-import 'package:flutter_form_bloc/flutter_form_bloc.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 
 import 'package:tap_debouncer/tap_debouncer.dart';
@@ -47,14 +47,15 @@ mixin PlatformMixin {
     Widget? content,
   });
   Widget constructDivider(BuildContext context);
-  Widget constructInputCheckbox<T extends BooleanFieldBloc<dynamic>>(BuildContext context, T value, String title, {bool readOnly = true});
-  Widget constructInputColor<T extends InputFieldBloc<Color, dynamic>>(BuildContext context, T value, String title, String? hint, {bool readOnly = false});
-  Widget constructInputDropdown<T extends ValueItemSelectFieldBloc<String, String, dynamic>>(BuildContext context, T value, String text, String hint, {bool readOnly = true});
-  Widget constructInputNumber<T extends TextFieldBloc<dynamic>>(BuildContext context, T value, String title, String? hint, {bool signed = false, bool readOnly = false});
-  Widget constructInputNumberDecimal<T extends TextFieldBloc<dynamic>>(BuildContext context, T value, String title, String? hint, {bool signed = false, bool readOnly = false});
-  Widget constructInputText<T extends TextFieldBloc<dynamic>>(BuildContext context, T value, String title, String? hint, {bool readOnly = false});
-  Widget constructInputTextArea<T extends TextFieldBloc<dynamic>>(BuildContext context, T value, String title, String? hint,
-      {int maxLines = 5, int minLines = 1, int? maxLength = 500, MaxLengthEnforcement maxLengthEnforced = MaxLengthEnforcement.enforced, bool readOnly = false});
+  // Widget constructInputCheckbox<T extends BooleanFieldBloc<dynamic>>(BuildContext context, T value, String title, {bool readOnly = true});
+  // Widget constructInputColor<T extends InputFieldBloc<Color?, dynamic>>(BuildContext context, T value, String title, String? hint, {bool readOnly = false});
+  // Widget constructInputDropdown<T extends ValueItemSelectFieldBloc<String, String, dynamic>>(BuildContext context, T value, String text, String hint, {bool readOnly = true});
+  // Widget constructInputImage<T extends InputFieldBloc<Uint8List?, dynamic>>(BuildContext context, T value, String title, String? hint, {bool readOnly = false});
+  // Widget constructInputNumber<T extends TextFieldBloc<dynamic>>(BuildContext context, T value, String title, String? hint, {bool signed = false, bool readOnly = false});
+  // Widget constructInputNumberDecimal<T extends TextFieldBloc<dynamic>>(BuildContext context, T value, String title, String? hint, {bool signed = false, bool readOnly = false});
+  // Widget constructInputText<T extends TextFieldBloc<dynamic>>(BuildContext context, T value, String title, String? hint, {bool readOnly = false});
+  // Widget constructInputTextArea<T extends TextFieldBloc<dynamic>>(BuildContext context, T value, String title, String? hint,
+  //     {int maxLines = 5, int minLines = 1, int? maxLength = 500, MaxLengthEnforcement maxLengthEnforced = MaxLengthEnforcement.enforced, bool readOnly = false});
   Widget constructNavigationBarMenu(BuildContext context);
   constructNavigationBarMenuSelected(BuildContext context, NavigationBarMenuItem value) {
     Navigator.pushNamed(context, value.route);
@@ -74,7 +75,7 @@ mixin PlatformMixin {
   IconData determineIcon(String iconType);
 
   showDialogAlert(BuildContext context, WidgetBuilder builder, Function(dynamic) onSuccess);
-  Future<Color?> showDialogColor(BuildContext context, {Color? previous, List<Color>? colors});
+  Future<Color?> showDialogColor(BuildContext context, {Color? previous, List<Color>? colorsOverride});
   Future<bool> showDialogConfirm(
     BuildContext context, {
     Widget? title,
@@ -95,6 +96,7 @@ mixin PlatformMixin {
     return !(await showDialogConfirmDirty(context, isDirty));
   }
 
+  Future<Uint8List?> showDialogImage(BuildContext context, {Uint8List? previous});
   Future<String?> showDialogSelection(BuildContext context, String? title, Map<String, String> selections);
 
   TextStyle? textStyleHeading(BuildContext context);
