@@ -15,15 +15,20 @@ mixin PlatformMixin {
   static const String iconArrowRightDirectory = 'subdirectory_arrow_right';
   static const String iconArrowDown = 'arrow_downward';
   static const String iconCamera = 'camera';
+  static const String iconCameraAlt = 'camera_alt';
+  static const String iconCameraAltOutlined = 'camera_alt_outlined';
   static const String iconCheck = 'check';
   static const String iconClear = 'clear';
   static const String iconClose = 'close';
   static const String iconColor = 'color';
   static const String iconDelete = 'delete';
   static const String iconEdit = 'edit';
+  static const String iconImage = 'iconImage';
   static const String iconMoreVert = 'moreVert';
   static const String iconPause = 'pause';
   static const String iconPhoto = 'photo';
+  static const String iconPhotoLibrary = 'photo_library';
+  static const String iconPhotoLibraryOutlined = 'photo_library_outlined';
   static const String iconPhotoAlbum = 'photoAlbum';
   static const String iconPlay = 'play';
   static const String iconRadioCheck = 'radioCheck';
@@ -59,7 +64,7 @@ mixin PlatformMixin {
     bool fullscreenDialog = false,
   });
   Widget constructPopupMenu(BuildContext context, List<PopupMenuItem2> list);
-  StatefulWidget constructScaffold(BuildContext context, Widget body, String title, {Widget? bottomNavigationBar, List<Widget>? actions, Widget? actionButton, bool? resizeToAvoidBottomInset});
+  StatefulWidget constructScaffold(BuildContext context, Widget body, String title, {Widget? bottomNavigationBar, List<Widget>? actions, Widget? actionButton, String? actionButtonLocation, bool? resizeToAvoidBottomInset});
   Widget constructText(BuildContext context, String valueOrId, {bool isId = true});
   Widget constructTextHeader(BuildContext context, String valueOrId, {bool isId = true});
 

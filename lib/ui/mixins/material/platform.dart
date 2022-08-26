@@ -191,8 +191,14 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  StatefulWidget constructScaffold(BuildContext context, Widget body, String title, {Widget? bottomNavigationBar, List<Widget>? actions, Widget? actionButton, bool? resizeToAvoidBottomInset}) {
-    return Scaffold(resizeToAvoidBottomInset: resizeToAvoidBottomInset ?? false, appBar: AppBar(title: Text(title), actions: actions), body: body, bottomNavigationBar: bottomNavigationBar, floatingActionButton: actionButton);
+  StatefulWidget constructScaffold(BuildContext context, Widget body, String title, {Widget? bottomNavigationBar, List<Widget>? actions, Widget? actionButton, String? actionButtonLocation, bool? resizeToAvoidBottomInset}) {
+    return Scaffold(
+        resizeToAvoidBottomInset: resizeToAvoidBottomInset ?? false,
+        appBar: AppBar(title: Text(title), actions: actions),
+        body: body,
+        bottomNavigationBar: bottomNavigationBar,
+        floatingActionButton: actionButton,
+        floatingActionButtonLocation: _convertActionButtonLocation(actionButtonLocation));
   }
 
   @override
@@ -239,6 +245,16 @@ mixin MaterialPlatformMixin on PlatformMixin {
           icon = Icons.camera;
           break;
         }
+      case PlatformMixin.iconCameraAlt:
+        {
+          icon = Icons.camera_alt;
+          break;
+        }
+      case PlatformMixin.iconCameraAltOutlined:
+        {
+          icon = Icons.camera_alt_outlined;
+          break;
+        }
       case PlatformMixin.iconColor:
         {
           icon = Icons.colorize;
@@ -269,6 +285,11 @@ mixin MaterialPlatformMixin on PlatformMixin {
           icon = Icons.edit;
           break;
         }
+      case PlatformMixin.iconImage:
+        {
+          icon = Icons.image;
+          break;
+        }
       case PlatformMixin.iconMoreVert:
         {
           icon = Icons.more_vert;
@@ -287,6 +308,16 @@ mixin MaterialPlatformMixin on PlatformMixin {
       case PlatformMixin.iconPhotoAlbum:
         {
           icon = Icons.photo_album;
+          break;
+        }
+      case PlatformMixin.iconPhotoLibrary:
+        {
+          icon = Icons.photo_library;
+          break;
+        }
+      case PlatformMixin.iconPhotoLibraryOutlined:
+        {
+          icon = Icons.photo_library_outlined;
           break;
         }
       case PlatformMixin.iconPlay:
@@ -437,5 +468,20 @@ mixin MaterialPlatformMixin on PlatformMixin {
   @override
   TextStyle? textStyleText(BuildContext context) {
     return Theme.of(context).textTheme.bodyText2;
+  }
+
+  _convertActionButtonLocation(String? actionButtonLocation) {
+    if (actionButtonLocation == FloatingActionButtonLocation.centerDocked.toString()) return FloatingActionButtonLocation.centerDocked;
+    if (actionButtonLocation == FloatingActionButtonLocation.centerFloat.toString()) return FloatingActionButtonLocation.centerFloat;
+    if (actionButtonLocation == FloatingActionButtonLocation.centerTop.toString()) return FloatingActionButtonLocation.centerTop;
+    if (actionButtonLocation == FloatingActionButtonLocation.endDocked.toString()) return FloatingActionButtonLocation.endDocked;
+    if (actionButtonLocation == FloatingActionButtonLocation.endFloat.toString()) return FloatingActionButtonLocation.endFloat;
+    if (actionButtonLocation == FloatingActionButtonLocation.endTop.toString()) return FloatingActionButtonLocation.endTop;
+    if (actionButtonLocation == FloatingActionButtonLocation.miniCenterDocked.toString()) return FloatingActionButtonLocation.miniCenterDocked;
+    if (actionButtonLocation == FloatingActionButtonLocation.miniCenterFloat.toString()) return FloatingActionButtonLocation.miniCenterFloat;
+    if (actionButtonLocation == FloatingActionButtonLocation.miniCenterTop.toString()) return FloatingActionButtonLocation.miniCenterTop;
+    if (actionButtonLocation == FloatingActionButtonLocation.miniEndDocked.toString()) return FloatingActionButtonLocation.miniEndDocked;
+    if (actionButtonLocation == FloatingActionButtonLocation.miniEndFloat.toString()) return FloatingActionButtonLocation.miniEndFloat;
+    if (actionButtonLocation == FloatingActionButtonLocation.miniEndTop.toString()) return FloatingActionButtonLocation.miniEndTop;
   }
 }
