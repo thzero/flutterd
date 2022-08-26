@@ -466,6 +466,11 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
+  TextStyle? getTextStyleSubTitle(BuildContext context) {
+    return Theme.of(context).textTheme.subtitle1;
+  }
+
+  @override
   TextStyle? textStyleText(BuildContext context) {
     return Theme.of(context).textTheme.bodyText2;
   }

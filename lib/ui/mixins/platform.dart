@@ -100,6 +100,8 @@ mixin PlatformMixin {
     return TextStyle(color: colorHyperlink(context), decoration: TextDecoration.underline, fontWeight: FontWeight.bold);
   }
 
+  TextStyle? getTextStyleSubTitle(BuildContext context);
+
   TextStyle? textStyleText(BuildContext context);
 }
 
