@@ -7,6 +7,7 @@ import 'package:flutterd/ui/base_application_factory.dart';
 import 'package:flutterd/ui/navigation_bar_tabs.dart';
 import 'package:flutterd/ui/navigation_bar_menu.dart';
 import 'package:flutterd/ui/widgets/base_application.dart';
+import 'package:flutterd/utils/utilities.dart';
 
 // import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -20,11 +21,15 @@ abstract class BaseApplication {
 
     NavigationBarMenu.init(initNavigationBar());
     NavigationBarTabs.init(initNavigationBarTabs());
+
+    Utilities.copyright = initCopyright();
   }
 
   Widget? initBody() {
     return null;
   }
+
+  Copyright initCopyright();
 
   BaseNavigationBarMenu initNavigationBar();
 
