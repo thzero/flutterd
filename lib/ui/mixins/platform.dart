@@ -36,6 +36,7 @@ mixin PlatformMixin {
   static const String iconReadMore = 'readMore';
   static const String iconReorder = 'reorder';
   static const String iconSearch = 'search';
+  static const String iconSettings = 'settings';
   static const String iconStart = 'start';
   static const String iconStop = 'stop';
 
