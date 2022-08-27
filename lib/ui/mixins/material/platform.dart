@@ -350,6 +350,11 @@ mixin MaterialPlatformMixin on PlatformMixin {
           icon = Icons.search;
           break;
         }
+      case PlatformMixin.iconSettings:
+        {
+          icon = Icons.settings;
+          break;
+        }
       case PlatformMixin.iconStart:
         {
           icon = Icons.start;
