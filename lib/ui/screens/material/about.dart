@@ -22,7 +22,7 @@ class MaterialAboutScreenState extends AboutScreenState<MaterialAboutScreen> wit
           applicationIcon: const FlutterLogo(),
           applicationName: title(context),
           applicationVersion: (version ?? '') + (buildNumber ?? ''),
-          applicationLegalese: '\u{a9} ${copyright?.years} ${copyright?.authors}',
+          applicationLegalese: '\u{a9} ${copyright?.yearsComplete} ${copyright?.authors}',
         ),
         title(context));
   }

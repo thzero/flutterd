@@ -26,7 +26,7 @@ abstract class AboutScreenState<T extends AboutScreen> extends State<T> with Pla
       setState(() {
         appName = packageInfo.appName;
         buildNumber = packageInfo.buildNumber;
-        copyright = Utilities.copyright ?? Copyright('', '');
+        copyright = Utilities.copyright ?? Copyright('');
         packageName = packageInfo.packageName;
         version = packageInfo.version;
       });
