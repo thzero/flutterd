@@ -1,10 +1,10 @@
 import 'package:flutter/widgets.dart';
 
 import 'package:flutter_i18n/flutter_i18n.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import 'package:flutterd/ui/mixins/platform.dart';
 import 'package:flutterd/utils/utilities.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 
 abstract class AboutScreen extends StatefulWidget {
   const AboutScreen({Key? key}) : super(key: key);
@@ -31,6 +31,18 @@ abstract class AboutScreenState<T extends AboutScreen> extends State<T> with Pla
         version = packageInfo.version;
       });
     });
+  }
+
+  String initVersionFormat() {
+    return '${version ?? ''}+${buildNumber ?? ''}';
+  }
+
+  String initLeagleseFormat() {
+    return '${initLeagleseFormatSymbol()} ${copyright?.yearsComplete} ${copyright?.authors}';
+  }
+
+  String initLeagleseFormatSymbol() {
+    return '\u{a9}';
   }
 
   String title(BuildContext context) {
