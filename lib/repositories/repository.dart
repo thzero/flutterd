@@ -1,9 +1,11 @@
-abstract class RepositoryItem<T> implements Repository {
+import 'package:flutterd/models/shared_preferences.dart';
+
+abstract class RepositoryItem<T> extends Repository {
   T get();
 }
 
 abstract class Repository {
-  load();
+  Future<void> load();
   reset();
   Future<void> save(Function update);
 }
