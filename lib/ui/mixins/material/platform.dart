@@ -220,9 +220,14 @@ mixin MaterialPlatformMixin on PlatformMixin {
           icon = Icons.add;
           break;
         }
-      case PlatformMixin.iconArrowUp:
+      case PlatformMixin.iconArrowDown:
         {
-          icon = Icons.arrow_upward;
+          icon = Icons.arrow_downward;
+          break;
+        }
+      case PlatformMixin.iconArrowLeft:
+        {
+          icon = Icons.arrow_left;
           break;
         }
       case PlatformMixin.iconArrowLeftDirectory:
@@ -230,14 +235,19 @@ mixin MaterialPlatformMixin on PlatformMixin {
           icon = Icons.subdirectory_arrow_left;
           break;
         }
+      case PlatformMixin.iconArrowRight:
+        {
+          icon = Icons.arrow_right;
+          break;
+        }
       case PlatformMixin.iconArrowRightDirectory:
         {
           icon = Icons.subdirectory_arrow_right;
           break;
         }
-      case PlatformMixin.iconArrowDown:
+      case PlatformMixin.iconArrowUp:
         {
-          icon = Icons.arrow_downward;
+          icon = Icons.arrow_upward;
           break;
         }
       case PlatformMixin.iconCamera:

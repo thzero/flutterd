@@ -10,10 +10,12 @@ import 'package:flutterd/ui/navigation_bar_menu.dart';
 
 mixin PlatformMixin {
   static const String iconAdd = 'add';
-  static const String iconArrowUp = 'arrow_upward';
-  static const String iconArrowLeftDirectory = 'subdirectory_arrow_left';
-  static const String iconArrowRightDirectory = 'subdirectory_arrow_right';
   static const String iconArrowDown = 'arrow_downward';
+  static const String iconArrowLeft = 'addLeft';
+  static const String iconArrowLeftDirectory = 'subdirectory_arrow_left';
+  static const String iconArrowRight = 'addRight';
+  static const String iconArrowRightDirectory = 'subdirectory_arrow_right';
+  static const String iconArrowUp = 'arrow_upward';
   static const String iconCamera = 'camera';
   static const String iconCameraAlt = 'camera_alt';
   static const String iconCameraAltOutlined = 'camera_alt_outlined';
