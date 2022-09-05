@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/gestures.dart';
 
 import 'package:url_launcher/url_launcher.dart';
@@ -50,6 +52,14 @@ class Utilities {
       ..onTap = () {
         launchUrl(uri, mode: LaunchMode.externalApplication);
       };
+  }
+
+  static void DelayMis<T>(FutureOr<T> Function() computation, {int delay = 50}) {
+    Future.delayed(Duration(microseconds: delay), null);
+  }
+
+  static void DelayMs<T>(FutureOr<T> Function() computation, {int delay = 50}) {
+    Future.delayed(Duration(milliseconds: delay), null);
   }
 }
 
