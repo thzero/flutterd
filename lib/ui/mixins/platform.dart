@@ -10,10 +10,12 @@ import 'package:flutterd/ui/navigation_bar_menu.dart';
 
 mixin PlatformMixin {
   static const String iconAdd = 'add';
-  static const String iconArrowUp = 'arrow_upward';
-  static const String iconArrowLeftDirectory = 'subdirectory_arrow_left';
-  static const String iconArrowRightDirectory = 'subdirectory_arrow_right';
   static const String iconArrowDown = 'arrow_downward';
+  static const String iconArrowLeft = 'addLeft';
+  static const String iconArrowLeftDirectory = 'subdirectory_arrow_left';
+  static const String iconArrowRight = 'addRight';
+  static const String iconArrowRightDirectory = 'subdirectory_arrow_right';
+  static const String iconArrowUp = 'arrow_upward';
   static const String iconCamera = 'camera';
   static const String iconCameraAlt = 'camera_alt';
   static const String iconCameraAltOutlined = 'camera_alt_outlined';
@@ -66,7 +68,8 @@ mixin PlatformMixin {
   });
   Widget constructPopupMenu(BuildContext context, List<PopupMenuItem2> list);
   StatefulWidget constructScaffold(BuildContext context, Widget body, String title, {Widget? bottomNavigationBar, List<Widget>? actions, Widget? actionButton, String? actionButtonLocation, bool? resizeToAvoidBottomInset});
-  Widget constructText(BuildContext context, String valueOrId, {bool isId = true});
+  Widget constructText(BuildContext context, String valueOrId, {bool isId = true, TextStyle? style});
+  Widget constructTextTap(BuildContext context, TapDebouncerFunc? onTapFunc, String title, {int cooldown = 500, bool disabled = false, TapDebouncerFunc? onDoubleTapFunc, TextStyle? style});
   Widget constructTextHeader(BuildContext context, String valueOrId, {bool isId = true});
 
   IconData determineIcon(String iconType);
