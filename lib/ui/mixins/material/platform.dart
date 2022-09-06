@@ -107,7 +107,10 @@ mixin MaterialPlatformMixin on PlatformMixin {
 
   @override
   Widget constructDialogAlert(BuildContext context, Widget? content, List<Widget>? actions) {
-    return AlertDialog(content: content, actions: actions);
+    return AlertDialog(
+      content: content,
+      actions: actions,
+    );
   }
 
   @override
@@ -202,8 +205,35 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  Widget constructText(BuildContext context, String valueOrId, {bool isId = true}) {
-    return Text(isId ? FlutterI18n.translate(context, valueOrId) : valueOrId);
+  Widget constructText(BuildContext context, String valueOrId, {bool isId = true, TextStyle? style}) {
+    return Text(
+      isId ? FlutterI18n.translate(context, valueOrId) : valueOrId,
+      style: style,
+    );
+  }
+
+  @override
+  Widget constructTextTap(BuildContext context, TapDebouncerFunc? onTapFunc, String title, {int cooldown = 500, bool disabled = false, TapDebouncerFunc? onDoubleTapFunc, TextStyle? style}) {
+    if (disabled) {
+      return Text(
+        title,
+        style: style,
+      );
+    }
+
+    return TapDebouncer(
+        cooldown: Duration(milliseconds: cooldown),
+        onTap: onTapFunc,
+        builder: (BuildContext context, TapDebouncerFunc? onTap) {
+          return InkWell(
+            onTap: onTap,
+            onDoubleTap: onDoubleTapFunc,
+            child: Text(
+              title,
+              style: style,
+            ),
+          );
+        });
   }
 
   @override

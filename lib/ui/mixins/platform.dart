@@ -68,7 +68,8 @@ mixin PlatformMixin {
   });
   Widget constructPopupMenu(BuildContext context, List<PopupMenuItem2> list);
   StatefulWidget constructScaffold(BuildContext context, Widget body, String title, {Widget? bottomNavigationBar, List<Widget>? actions, Widget? actionButton, String? actionButtonLocation, bool? resizeToAvoidBottomInset});
-  Widget constructText(BuildContext context, String valueOrId, {bool isId = true});
+  Widget constructText(BuildContext context, String valueOrId, {bool isId = true, TextStyle? style});
+  Widget constructTextTap(BuildContext context, TapDebouncerFunc? onTapFunc, String title, {int cooldown = 500, bool disabled = false, TapDebouncerFunc? onDoubleTapFunc, TextStyle? style});
   Widget constructTextHeader(BuildContext context, String valueOrId, {bool isId = true});
 
   IconData determineIcon(String iconType);
