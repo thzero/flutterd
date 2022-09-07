@@ -55,11 +55,11 @@ class Utilities {
   }
 
   static void DelayMis<T>(FutureOr<T> Function() computation, {int delay = 50}) {
-    Future.delayed(Duration(microseconds: delay), null);
+    Future.delayed(Duration(microseconds: delay), computation);
   }
 
   static void DelayMs<T>(FutureOr<T> Function() computation, {int delay = 50}) {
-    Future.delayed(Duration(milliseconds: delay), null);
+    Future.delayed(Duration(milliseconds: delay), computation);
   }
 }
 

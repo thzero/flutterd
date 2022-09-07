@@ -43,6 +43,7 @@ dependencies:
   flutter_localizations: # add this line
     sdk: flutter 
   intl: ^0.17.0   
+  country_pickers: ^2.0.0
 
 dev_dependencies:
   flutter_test:
