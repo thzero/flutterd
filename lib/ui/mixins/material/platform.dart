@@ -237,6 +237,15 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
+  Widget constructTextFieldOutline(BuildContext context, TextEditingController controller, String label) {
+    return TextField(
+      controller: controller,
+      decoration: InputDecoration(labelText: label),
+      readOnly: true,
+    );
+  }
+
+  @override
   Widget constructTextHeader(BuildContext context, String valueOrId, {bool isId = true}) {
     return Text(isId ? FlutterI18n.translate(context, valueOrId) : valueOrId, style: Theme.of(context).textTheme.headline6);
   }
@@ -411,6 +420,41 @@ mixin MaterialPlatformMixin on PlatformMixin {
     }
 
     return icon;
+  }
+
+  @override
+  Color? getOutlineColorBackground(BuildContext context) {
+    return Theme.of(context).scaffoldBackgroundColor;
+  }
+
+  @override
+  BorderRadiusGeometry? getOutlineTitledContainerBorderRadius(BuildContext context) {
+    return (Theme.of(context).inputDecorationTheme.focusedBorder! as OutlineInputBorder).borderRadius;
+  }
+
+  @override
+  Color? getOutlineTitledContainerColor(BuildContext context) {
+    return Theme.of(context).inputDecorationTheme.fillColor;
+  }
+
+  @override
+  Color getOutlineTitledContainerColorBorder(BuildContext context) {
+    return Theme.of(context).inputDecorationTheme.focusedBorder!.borderSide.color;
+  }
+
+  @override
+  Color? getOutlineTitledContainerColorTitle(BuildContext context) {
+    return Theme.of(context).inputDecorationTheme.floatingLabelStyle!.color;
+  }
+
+  @override
+  Color? getOutlineTitledContainerColorTitleAlt(BuildContext context) {
+    return Theme.of(context).inputDecorationTheme.focusedBorder!.borderSide.color;
+  }
+
+  @override
+  double? getOutlineTitledContainerFontSize(BuildContext context) {
+    return Theme.of(context).inputDecorationTheme.floatingLabelStyle!.fontSize;
   }
 
   @override

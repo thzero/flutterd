@@ -39,6 +39,11 @@ dependencies:
   url_launcher: ^6.1.5
   image_picker: ^0.8.5+3
   flutter_colorpicker: ^1.0.3
+  flutter_titled_container: 
+    # path: ../flutter_titled_container
+    git:
+      url: https://github.com/thzero/flutter_titled_container
+      ref: dev
   
   flutter_localizations: # add this line
     sdk: flutter 
