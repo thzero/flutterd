@@ -49,6 +49,7 @@ mixin PlatformMixin {
   Widget constructButtonTap(BuildContext context, TapDebouncerFunc? onTapFunc, String title, {int cooldown = 500, bool disabled = false});
   Widget constructButtonTapIcon(BuildContext context, TapDebouncerFunc? onTapFunc, String iconType, {int cooldown = 500, bool disabled = false});
   StatelessWidget constructCard(BuildContext context, Widget child, {double? height, double? width});
+  Widget constructCheckboxOutline(BuildContext context, String label, bool? value);
   Widget constructDialogAlert(BuildContext context, Widget? content, List<Widget>? actions);
   constructDialogConfirm(
     BuildContext context, {

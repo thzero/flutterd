@@ -136,6 +136,17 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
+  Widget constructCheckboxOutline(BuildContext context, String label, bool? value) {
+    return constructOutlineContainer(
+        context,
+        label,
+        Checkbox(
+          value: value,
+          onChanged: null,
+        ));
+  }
+
+  @override
   Widget constructDivider(BuildContext context) {
     return const Divider();
   }
