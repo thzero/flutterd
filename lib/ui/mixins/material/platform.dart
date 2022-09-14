@@ -136,6 +136,17 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
+  Widget constructCheckboxOutline(BuildContext context, String label, bool? value) {
+    return constructOutlineContainer(
+        context,
+        label,
+        Checkbox(
+          value: value,
+          onChanged: null,
+        ));
+  }
+
+  @override
   Widget constructDivider(BuildContext context) {
     return const Divider();
   }
@@ -234,6 +245,15 @@ mixin MaterialPlatformMixin on PlatformMixin {
             ),
           );
         });
+  }
+
+  @override
+  Widget constructTextFieldOutline(BuildContext context, TextEditingController controller, String label) {
+    return TextField(
+      controller: controller,
+      decoration: InputDecoration(labelText: label),
+      readOnly: true,
+    );
   }
 
   @override
@@ -411,6 +431,41 @@ mixin MaterialPlatformMixin on PlatformMixin {
     }
 
     return icon;
+  }
+
+  @override
+  Color? getOutlineColorBackground(BuildContext context) {
+    return Theme.of(context).scaffoldBackgroundColor;
+  }
+
+  @override
+  BorderRadiusGeometry? getOutlineTitledContainerBorderRadius(BuildContext context) {
+    return (Theme.of(context).inputDecorationTheme.focusedBorder! as OutlineInputBorder).borderRadius;
+  }
+
+  @override
+  Color? getOutlineTitledContainerColor(BuildContext context) {
+    return Theme.of(context).inputDecorationTheme.fillColor;
+  }
+
+  @override
+  Color getOutlineTitledContainerColorBorder(BuildContext context) {
+    return Theme.of(context).inputDecorationTheme.focusedBorder!.borderSide.color;
+  }
+
+  @override
+  Color? getOutlineTitledContainerColorTitle(BuildContext context) {
+    return Theme.of(context).inputDecorationTheme.floatingLabelStyle!.color;
+  }
+
+  @override
+  Color? getOutlineTitledContainerColorTitleAlt(BuildContext context) {
+    return Theme.of(context).inputDecorationTheme.focusedBorder!.borderSide.color;
+  }
+
+  @override
+  double? getOutlineTitledContainerFontSize(BuildContext context) {
+    return Theme.of(context).inputDecorationTheme.floatingLabelStyle!.fontSize;
   }
 
   @override

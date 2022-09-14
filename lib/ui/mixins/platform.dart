@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:flutter/widgets.dart';
 
 import 'package:flutter_i18n/flutter_i18n.dart';
+import 'package:flutter_titled_container/flutter_titled_container.dart';
 
 import 'package:tap_debouncer/tap_debouncer.dart';
 
@@ -48,6 +49,7 @@ mixin PlatformMixin {
   Widget constructButtonTap(BuildContext context, TapDebouncerFunc? onTapFunc, String title, {int cooldown = 500, bool disabled = false});
   Widget constructButtonTapIcon(BuildContext context, TapDebouncerFunc? onTapFunc, String iconType, {int cooldown = 500, bool disabled = false});
   StatelessWidget constructCard(BuildContext context, Widget child, {double? height, double? width});
+  Widget constructCheckboxOutline(BuildContext context, String label, bool? value);
   Widget constructDialogAlert(BuildContext context, Widget? content, List<Widget>? actions);
   constructDialogConfirm(
     BuildContext context, {
@@ -60,6 +62,90 @@ mixin PlatformMixin {
     Navigator.pushNamed(context, value.route);
   }
 
+  Widget constructOutlineContainer(BuildContext context, String label, Widget widget) {
+    double fontSize = getOutlineTitledContainerFontSize(context) ?? 12.0;
+    return Padding(
+        padding: EdgeInsets.fromLTRB(0, fontSize + 4, 0, 0),
+        child: TitledContainer(
+            titleColor: getOutlineTitledContainerColorTitle(context) ?? getOutlineTitledContainerColorTitleAlt(context),
+            title: label,
+            fontSize: fontSize,
+            fontWeight: FontWeight.bold,
+            textAlign: TextAlignTitledContainer.left,
+            backgroundColor: getOutlineColorBackground(context),
+            child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: getOutlineTitledContainerColor(context),
+                    border: Border.all(
+                      color: getOutlineTitledContainerColorBorder(context),
+                      width: 1.2,
+                    ),
+                    borderRadius: getOutlineTitledContainerBorderRadius(context)),
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(10.0, 16.0, 10.0, 16.0),
+                  child: widget,
+                ))));
+  }
+
+  Widget constructTextOutlineContainer(BuildContext context, String label, String? text) {
+    double fontSize = getOutlineTitledContainerFontSize(context) ?? 12.0;
+    return Padding(
+        padding: EdgeInsets.fromLTRB(0, fontSize + 4, 0, 0),
+        child: TitledContainer(
+            titleColor: getOutlineTitledContainerColorTitle(context) ?? getOutlineTitledContainerColorTitleAlt(context),
+            title: label,
+            fontSize: fontSize,
+            fontWeight: FontWeight.bold,
+            textAlign: TextAlignTitledContainer.left,
+            backgroundColor: getOutlineColorBackground(context),
+            child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: getOutlineTitledContainerColor(context),
+                    border: Border.all(
+                      color: getOutlineTitledContainerColorBorder(context),
+                      width: 1.2,
+                    ),
+                    borderRadius: getOutlineTitledContainerBorderRadius(context)),
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(10.0, 16.0, 10.0, 16.0),
+                  child: Text(text ?? '',
+                      style: getTextStyleSubTitle(context)!.merge(
+                        const TextStyle(fontWeight: FontWeight.normal),
+                      )),
+                ))));
+    // return Column(children: [
+    //   Padding(
+    //       padding: EdgeInsets.fromLTRB(0, fontSize + 4, 0, 0),
+    //       child: TitledContainer(
+    //           titleColor: Theme.of(context).inputDecorationTheme.floatingLabelStyle!.color ?? Theme.of(context).inputDecorationTheme.focusedBorder!.borderSide.color,
+    //           title: label,
+    //           fontSize: fontSize,
+    //           fontWeight: FontWeight.bold,
+    //           textAlign: TextAlignTitledContainer.left,
+    //           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+    //           child: Expanded(
+    //               child: Container(
+    //             width: double.infinity,
+    //             decoration: BoxDecoration(
+    //                 color: Theme.of(context).inputDecorationTheme.fillColor,
+    //                 border: Border.all(
+    //                   color: Theme.of(context).inputDecorationTheme.focusedBorder!.borderSide.color,
+    //                   width: 1.2,
+    //                 ),
+    //                 borderRadius: (Theme.of(context).inputDecorationTheme.focusedBorder! as OutlineInputBorder).borderRadius),
+    //             child: Padding(
+    //               padding: const EdgeInsets.fromLTRB(10.0, 16.0, 10.0, 16.0),
+    //               child: Text(text ?? '',
+    //                   style: getTextStyleSubTitle(context)!.merge(
+    //                         const TextStyle(fontWeight: FontWeight.normal),
+    //                       )),
+    //             ),
+    //           ))))
+    // ]);
+  }
+
   PageRoute<T> constructPageRoute<T>(
     WidgetBuilder builder, {
     RouteSettings? settings,
@@ -69,10 +155,31 @@ mixin PlatformMixin {
   Widget constructPopupMenu(BuildContext context, List<PopupMenuItem2> list);
   StatefulWidget constructScaffold(BuildContext context, Widget body, String title, {Widget? bottomNavigationBar, List<Widget>? actions, Widget? actionButton, String? actionButtonLocation, bool? resizeToAvoidBottomInset});
   Widget constructText(BuildContext context, String valueOrId, {bool isId = true, TextStyle? style});
-  Widget constructTextTap(BuildContext context, TapDebouncerFunc? onTapFunc, String title, {int cooldown = 500, bool disabled = false, TapDebouncerFunc? onDoubleTapFunc, TextStyle? style});
+
+  Widget constructTextFieldOutline(BuildContext context, TextEditingController controller, String label);
+  Widget constructTextFieldOutlineContainer(BuildContext context, String label, String? text) {
+    double fontSize = getOutlineTitledContainerFontSize(context) ?? 12.0;
+    TextEditingController controller = TextEditingController();
+    Widget widget = Padding(padding: EdgeInsets.fromLTRB(0, fontSize + 4, 0, 0), child: constructTextFieldOutline(context, controller, label));
+    if (text != null) {
+      controller.text = text;
+      // controller.value.copyWith(text: text);
+    }
+    return widget;
+  }
+
   Widget constructTextHeader(BuildContext context, String valueOrId, {bool isId = true});
+  Widget constructTextTap(BuildContext context, TapDebouncerFunc? onTapFunc, String title, {int cooldown = 500, bool disabled = false, TapDebouncerFunc? onDoubleTapFunc, TextStyle? style});
 
   IconData determineIcon(String iconType);
+
+  Color? getOutlineColorBackground(BuildContext context);
+  BorderRadiusGeometry? getOutlineTitledContainerBorderRadius(BuildContext context);
+  Color? getOutlineTitledContainerColor(BuildContext context);
+  Color getOutlineTitledContainerColorBorder(BuildContext context);
+  Color? getOutlineTitledContainerColorTitle(BuildContext context);
+  Color? getOutlineTitledContainerColorTitleAlt(BuildContext context);
+  double? getOutlineTitledContainerFontSize(BuildContext context);
 
   showDialogAlert(BuildContext context, WidgetBuilder builder, Function(dynamic) onSuccess);
   Future<Color?> showDialogColor(BuildContext context, {Color? previous, List<Color>? colorsOverride});
