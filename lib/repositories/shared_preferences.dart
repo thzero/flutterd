@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutterd/models/shared_preferences.dart';
 import 'package:flutterd/repositories/repository.dart';
+import 'package:flutterd_logging_wrapper/logging.dart';
 
 abstract class SharedPreferencesRepository<T extends SharedPreferencesModel> extends RepositoryItem<T> {
   // Key is used to access store
@@ -93,6 +94,7 @@ abstract class RepositoryVersioned<T extends SharedPreferencesRepository, U exte
       await loadByVersionI(dataFromSource(data));
       valid = true;
     } catch (ex) {
+      Logger().e(this.runtimeType.toString(), 'loadByVersion', ex);
       valid = false;
     }
 

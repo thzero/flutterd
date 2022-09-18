@@ -47,6 +47,18 @@ class Utilities {
     return const Uuid().v4();
   }
 
+  static bool isNotEmpty(String? value) {
+    return value != null && value.isNotEmpty;
+  }
+
+  static bool isNotEmptyDouble(double? value) {
+    return value != null;
+  }
+
+  static bool isNotEmptyInt(int? value) {
+    return value != null;
+  }
+
   static TapGestureRecognizer tapGestureLaunchUri(Uri uri) {
     return TapGestureRecognizer()
       ..onTap = () {
