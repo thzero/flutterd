@@ -9,6 +9,7 @@ import 'package:tap_debouncer/tap_debouncer.dart';
 
 import 'package:flutterd/ui/mixins/platform.dart';
 import 'package:flutterd/ui/navigation_bar_menu.dart';
+import 'package:flutterd_logging_wrapper/logging.dart';
 
 const List<Color> colors = [
   Colors.red,
@@ -345,9 +346,19 @@ mixin MaterialPlatformMixin on PlatformMixin {
           icon = Icons.edit;
           break;
         }
+      case PlatformMixin.iconExport:
+        {
+          icon = Icons.download;
+          break;
+        }
       case PlatformMixin.iconImage:
         {
           icon = Icons.image;
+          break;
+        }
+      case PlatformMixin.iconImport:
+        {
+          icon = Icons.upload;
           break;
         }
       case PlatformMixin.iconMoreVert:
@@ -558,6 +569,24 @@ mixin MaterialPlatformMixin on PlatformMixin {
           );
         });
     return identifier;
+  }
+
+  @override
+  showSnackbar(BuildContext? context, String message, {Duration? duration}) {
+    if (context == null) {
+      Logger().wM(this.runtimeType.toString(), 'showSnackbar', 'Invalid context...');
+    }
+
+    ScaffoldMessenger.of(context!).showSnackBar(
+      duration != null
+          ? SnackBar(
+              content: Text(message),
+              duration: duration,
+            )
+          : SnackBar(
+              content: Text(message),
+            ),
+    );
   }
 
   @override

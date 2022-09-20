@@ -25,8 +25,10 @@ mixin PlatformMixin {
   static const String iconClose = 'close';
   static const String iconColor = 'color';
   static const String iconDelete = 'delete';
+  static const String iconExport = 'export';
   static const String iconEdit = 'edit';
   static const String iconImage = 'iconImage';
+  static const String iconImport = 'import';
   static const String iconMoreVert = 'moreVert';
   static const String iconPause = 'pause';
   static const String iconPhoto = 'photo';
@@ -205,6 +207,8 @@ mixin PlatformMixin {
 
   Future<Uint8List?> showDialogImage(BuildContext context, {Uint8List? previous});
   Future<String?> showDialogSelection(BuildContext context, String? title, Map<String, String> selections);
+
+  void showSnackbar(BuildContext? context, String message);
 
   TextStyle? textStyleHeading(BuildContext context);
   TextStyle textStyleHyperlink(BuildContext context) {
