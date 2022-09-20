@@ -51,6 +51,14 @@ class Utilities {
     return value != null && value.isNotEmpty;
   }
 
+  static bool isNotEmptyBool(bool? value) {
+    return value != null;
+  }
+
+  static bool isNotEmptyDateTime(DateTime? value) {
+    return value != null;
+  }
+
   static bool isNotEmptyDouble(double? value) {
     return value != null;
   }
