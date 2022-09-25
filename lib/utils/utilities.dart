@@ -47,6 +47,26 @@ class Utilities {
     return const Uuid().v4();
   }
 
+  static bool isEmpty(String? value) {
+    return value == null || (value != null && value.isEmpty);
+  }
+
+  static bool isEmptyBool(bool? value) {
+    return value == null;
+  }
+
+  static bool isEmptyDateTime(DateTime? value) {
+    return value == null;
+  }
+
+  static bool isEmptyDouble(double? value) {
+    return value == null;
+  }
+
+  static bool isEmptyInt(int? value) {
+    return value == null;
+  }
+
   static bool isNotEmpty(String? value) {
     return value != null && value.isNotEmpty;
   }
