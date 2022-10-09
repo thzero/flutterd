@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
+import 'package:flutterd/utils/utilities.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tap_debouncer/tap_debouncer.dart';
 
@@ -37,6 +38,11 @@ const List<Color> colors = [
 ];
 
 mixin MaterialPlatformMixin on PlatformMixin {
+  @override
+  Color colorBorder(BuildContext context) {
+    return Colors.black12.withOpacity(0.6);
+  }
+
   @override
   Color colorHyperlink(BuildContext context) {
     return Colors.blue;
@@ -102,6 +108,17 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
+  Widget constructCheckboxOutline(BuildContext context, String label, bool? value) {
+    return constructOutlineContainer(
+        context,
+        label,
+        Checkbox(
+          value: value,
+          onChanged: null,
+        ));
+  }
+
+  @override
   StatelessWidget constructCard(BuildContext context, Widget child, {double? height, double? width}) {
     return Card(child: child);
   }
@@ -137,19 +154,20 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  Widget constructCheckboxOutline(BuildContext context, String label, bool? value) {
-    return constructOutlineContainer(
-        context,
-        label,
-        Checkbox(
-          value: value,
-          onChanged: null,
-        ));
+  Widget constructDivider(BuildContext context) {
+    return const Divider();
   }
 
   @override
-  Widget constructDivider(BuildContext context) {
-    return const Divider();
+  Widget constructExpansion(BuildContext context, String title, List<Widget> content, {String? subTitle, bool initiallyExpanded = true, bool maintainState = true, ValueChanged<bool>? onExpansionChanged}) {
+    return ExpansionTile(
+      title: Text(title),
+      subtitle: Utilities.isNotEmpty(subTitle) ? Text(subTitle!) : null,
+      initiallyExpanded: initiallyExpanded,
+      maintainState: maintainState,
+      children: content,
+      onExpansionChanged: onExpansionChanged,
+    );
   }
 
   @override
