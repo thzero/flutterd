@@ -45,6 +45,7 @@ mixin PlatformMixin {
   static const String iconStart = 'start';
   static const String iconStop = 'stop';
 
+  Color colorBorder(BuildContext context);
   Color colorHyperlink(BuildContext context);
   Widget constructButton(BuildContext context, VoidCallback? onPressed, String text, {bool disabled = false});
   Widget constructButtonIcon(BuildContext context, VoidCallback? onPressed, String iconType, {bool disabled = false});
@@ -59,6 +60,7 @@ mixin PlatformMixin {
     Widget? content,
   });
   Widget constructDivider(BuildContext context);
+  Widget constructExpansion(BuildContext context, String title, List<Widget> content, {String? subTitle, bool initiallyExpanded = true, bool maintainState = true, ValueChanged<bool>? onExpansionChanged});
   Widget constructNavigationBarMenu(BuildContext context);
   constructNavigationBarMenuSelected(BuildContext context, NavigationBarMenuItem value) {
     Navigator.pushNamed(context, value.route);
