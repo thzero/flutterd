@@ -37,7 +37,7 @@ dependencies:
   tap_debouncer: ^2.0.2
   webview_flutter: ^3.0.4
   url_launcher: ^6.1.6
-  image_picker: ^0.8.5+3
+  image_picker: ^0.8.6
   flutter_colorpicker: ^1.0.3
   flutter_titled_container: 
     # path: ../flutter_titled_container
