@@ -160,11 +160,11 @@ mixin PlatformMixin {
   StatefulWidget constructScaffold(BuildContext context, Widget body, String title, {Widget? bottomNavigationBar, List<Widget>? actions, Widget? actionButton, String? actionButtonLocation, bool? resizeToAvoidBottomInset});
   Widget constructText(BuildContext context, String valueOrId, {bool isId = true, TextStyle? style});
 
-  Widget constructTextFieldOutline(BuildContext context, TextEditingController controller, String label);
-  Widget constructTextFieldOutlineContainer(BuildContext context, String label, String? text) {
+  Widget constructTextFieldOutline(BuildContext context, TextEditingController controller, String label, {GestureTapCallback? onTap});
+  Widget constructTextFieldOutlineContainer(BuildContext context, String label, String? text, {GestureTapCallback? onTap}) {
     double fontSize = getOutlineTitledContainerFontSize(context) ?? 12.0;
     TextEditingController controller = TextEditingController();
-    Widget widget = Padding(padding: EdgeInsets.fromLTRB(0, fontSize + 4, 0, 0), child: constructTextFieldOutline(context, controller, label));
+    Widget widget = Padding(padding: EdgeInsets.fromLTRB(0, fontSize + 4, 0, 0), child: constructTextFieldOutline(context, controller, label, onTap: onTap));
     if (text != null) {
       controller.text = text;
       // controller.value.copyWith(text: text);
