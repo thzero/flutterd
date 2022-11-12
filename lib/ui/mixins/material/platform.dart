@@ -267,11 +267,12 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  Widget constructTextFieldOutline(BuildContext context, TextEditingController controller, String label) {
+  Widget constructTextFieldOutline(BuildContext context, TextEditingController controller, String label, {GestureTapCallback? onTap}) {
     return TextField(
       controller: controller,
       decoration: InputDecoration(labelText: label),
       readOnly: true,
+      onTap: onTap,
     );
   }
 
