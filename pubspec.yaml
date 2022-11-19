@@ -16,14 +16,14 @@ dependencies:
   mutex: ^3.0.0
   typed_data: ^1.3.1   #  Helpers for Byte Buffers. From https://pub.dev/packages/typed_data
   equatable: ^2.0.5  #  Object Equality Helper. From https://pub.dev/packages/equatable
-  uuid: ^3.0.6
+  uuid: ^3.0.7
   loggerx: ^1.3.5
   flutterd_logging_wrapper: 
     # path: ../flutterd_logging_wrapper
     git:
       url: https://github.com/thzero/flutterd_logging_wrapper
   path_provider: ^2.0.11
-  package_info_plus: ^3.0.1
+  package_info_plus: ^3.0.2
   shared_preferences: ^2.0.15
   http: ^0.13.5  #  HTTP Helper. From https://pub.dev/packages/http
   sprintf: ^7.0.0
