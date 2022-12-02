@@ -43,6 +43,14 @@ class Utilities {
     return value.toStringAsFixed(2);
   }
 
+  static void delayMis<T>(FutureOr<T> Function() computation, {int delay = 50}) {
+    Future.delayed(Duration(microseconds: delay), computation);
+  }
+
+  static void delayMs<T>(FutureOr<T> Function() computation, {int delay = 50}) {
+    Future.delayed(Duration(milliseconds: delay), computation);
+  }
+
   static String generateId() {
     return const Uuid().v4();
   }
@@ -92,14 +100,6 @@ class Utilities {
       ..onTap = () {
         launchUrl(uri, mode: LaunchMode.externalApplication);
       };
-  }
-
-  static void DelayMis<T>(FutureOr<T> Function() computation, {int delay = 50}) {
-    Future.delayed(Duration(microseconds: delay), computation);
-  }
-
-  static void DelayMs<T>(FutureOr<T> Function() computation, {int delay = 50}) {
-    Future.delayed(Duration(milliseconds: delay), computation);
   }
 }
 
