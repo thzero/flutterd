@@ -101,6 +101,14 @@ class Utilities {
         launchUrl(uri, mode: LaunchMode.externalApplication);
       };
   }
+
+  static int timestamp() {
+    return DateTime.now().toUtc().millisecondsSinceEpoch;
+  }
+
+  static int timestampMs() {
+    return DateTime.now().toUtc().millisecondsSinceEpoch;
+  }
 }
 
 extension StringExtension on String {
