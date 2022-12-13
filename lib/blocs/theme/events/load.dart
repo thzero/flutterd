@@ -5,7 +5,4 @@ class LoadThemeEvent extends ThemeEvent {
   final ThemeState state;
 
   LoadThemeEvent({required this.state});
-
-  @override
-  List<Object> get props => [];
 }

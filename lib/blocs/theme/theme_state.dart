@@ -14,9 +14,6 @@ class ThemeState {
         themeData = null,
         theme = 0;
 
-  @override
-  List<Object> get props => [theme];
-
   ThemeState copyWith({int? theme}) {
     ThemeState state = ThemeState(darkThemeData, themeData, theme ?? this.theme);
     return state;

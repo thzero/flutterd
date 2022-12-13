@@ -165,8 +165,8 @@ mixin MaterialPlatformMixin on PlatformMixin {
       subtitle: Utilities.isNotEmpty(subTitle) ? Text(subTitle!) : null,
       initiallyExpanded: initiallyExpanded,
       maintainState: maintainState,
-      children: content,
       onExpansionChanged: onExpansionChanged,
+      children: content,
     );
   }
 
@@ -593,7 +593,7 @@ mixin MaterialPlatformMixin on PlatformMixin {
   @override
   showSnackbar(BuildContext? context, String message, {Duration? duration}) {
     if (context == null) {
-      Logger().wM(this.runtimeType.toString(), 'showSnackbar', 'Invalid context...');
+      Logger().wM(runtimeType.toString(), 'showSnackbar', 'Invalid context...');
     }
 
     ScaffoldMessenger.of(context!).showSnackBar(

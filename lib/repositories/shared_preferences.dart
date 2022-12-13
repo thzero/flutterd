@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:mutex/mutex.dart';
+// import 'package:mutex/mutex.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutterd/models/shared_preferences.dart';
@@ -13,7 +13,7 @@ abstract class SharedPreferencesRepository<T extends SharedPreferencesModel> ext
 
   late T preferences;
 
-  static final Mutex _mutex = Mutex();
+  // static final Mutex _mutex = Mutex();
 
   // This named constructor is the "real" constructor
   // It'll be called exactly once, by the static property assignment above
@@ -94,7 +94,7 @@ abstract class RepositoryVersioned<T extends SharedPreferencesRepository, U exte
       await loadByVersionI(dataFromSource(data));
       valid = true;
     } catch (ex) {
-      Logger().e(this.runtimeType.toString(), 'loadByVersion', ex);
+      Logger().e(runtimeType.toString(), 'loadByVersion', ex);
       valid = false;
     }
 

@@ -1,5 +1,3 @@
-import 'package:flutterd/models/shared_preferences.dart';
-
 abstract class RepositoryItem<T> extends Repository {
   T get();
 }
