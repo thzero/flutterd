@@ -26,6 +26,7 @@ class MultiTranslationLoader extends FileTranslationLoader {
       temp = null;
     }
     if (temp == null || temp.isEmpty) {
+      // ignore: invalid_use_of_protected_member
       temp = await _networkFileTranslationLoader.loadFile(fileName);
       return temp;
     }

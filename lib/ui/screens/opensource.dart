@@ -38,6 +38,8 @@ abstract class OpenSourceScreenState<T extends OpenSourceScreen> extends State<T
   }
 
   _display() {
+    final opensourcePackage = FlutterI18n.translate(context, 'opensource_package');
+    final opensourceLicense = FlutterI18n.translate(context, 'opensource_license');
     Future.delayed(const Duration(milliseconds: 500), () async {
       String? content = await rootBundle.loadString('assets/html/opensource.html');
       String? contentSnippet = await rootBundle.loadString('assets/html/opensource_snippet.html');
@@ -59,7 +61,7 @@ abstract class OpenSourceScreenState<T extends OpenSourceScreen> extends State<T
         output += sprintf(contentSnippet, [url, name, item['license']]);
       }
 
-      content = sprintf(content, [FlutterI18n.translate(context, 'opensource_package'), FlutterI18n.translate(context, 'opensource_license'), output]);
+      content = sprintf(content, [opensourcePackage, opensourceLicense, output]);
 
       _webViewController.loadHtmlString(content);
     });
