@@ -345,6 +345,11 @@ mixin MaterialPlatformMixin on PlatformMixin {
           icon = Icons.check;
           break;
         }
+      case PlatformMixin.iconCircle:
+        {
+          icon = Icons.circle;
+          break;
+        }
       case PlatformMixin.iconClear:
         {
           icon = Icons.clear;
@@ -402,7 +407,7 @@ mixin MaterialPlatformMixin on PlatformMixin {
         }
       case PlatformMixin.iconPhotoLibrary:
         {
-          icon = Icons.photo_library;
+          icon = Icons.circle;
           break;
         }
       case PlatformMixin.iconPhotoLibraryOutlined:
