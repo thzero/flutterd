@@ -44,7 +44,7 @@ dependencies:
   
   flutter_localizations: # add this line
     sdk: flutter 
-  intl: ^0.17.0   
+  intl: ^0.17.0 # flutter_localizations requires 0.17 still
 
 dev_dependencies:
   flutter_test:
