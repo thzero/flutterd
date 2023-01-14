@@ -14,13 +14,16 @@ abstract class HelpScreen extends StatefulWidget {
 }
 
 abstract class HelpScreenState<T extends HelpScreen> extends State<T> {
-  StatefulWidget constructWebView() {
-    return WebView(
-        initialUrl: null,
-        onWebViewCreated: (webViewController) {
-          webViewController.loadFlutterAsset('assets/html/help/index.html');
-          widget.controller.complete(webViewController);
-        });
+  final WebViewController _controller = WebViewController()..loadFlutterAsset('assets/html/help/index.html');
+
+  StatelessWidget constructWebView() {
+    return WebViewWidget(controller: _controller);
+    // WebView(
+    //     initialUrl: null,
+    //     onWebViewCreated: (webViewController) {
+    //       webViewController.loadFlutterAsset('assets/html/help/index.html');
+    //       widget.controller.complete(webViewController);
+    //     });
   }
 
   String title(BuildContext context) {

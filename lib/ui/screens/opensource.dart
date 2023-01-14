@@ -18,23 +18,21 @@ abstract class OpenSourceScreen extends StatefulWidget {
 }
 
 abstract class OpenSourceScreenState<T extends OpenSourceScreen> extends State<T> {
-  late WebViewController _webViewController;
-
-  late final String _defaultContent = '<html></html>';
-
-  WebView constructWebView() {
-    return WebView(
-        initialUrl: null,
-        navigationDelegate: (NavigationRequest request) {
+  static const String _defaultContent = '<html></html>';
+  final WebViewController _webViewController = WebViewController()
+    ..setNavigationDelegate(
+      NavigationDelegate(
+        onNavigationRequest: (NavigationRequest request) {
           launchUrl(Uri.parse(request.url), mode: LaunchMode.externalApplication);
           return NavigationDecision.prevent;
         },
-        onWebViewCreated: (webViewController) async {
-          _webViewController = webViewController;
-          webViewController.loadHtmlString(_defaultContent);
-          widget.controller.complete(webViewController);
-          _display();
-        });
+      ),
+    )
+    ..loadHtmlString(_defaultContent);
+
+  WebViewWidget constructWebView() {
+    _display();
+    return WebViewWidget(controller: _webViewController);
   }
 
   _display() {
