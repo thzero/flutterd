@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'dart:io';
+// import 'dart:io';
 
 import 'package:flutter/material.dart';
 
@@ -19,9 +19,9 @@ class _MaterialOpenSourceScreenState extends OpenSourceScreenState<MaterialOpenS
   void initState() {
     super.initState();
 
-    if (Platform.isAndroid) {
-      WebView.platform = AndroidWebView();
-    }
+    // if (Platform.isAndroid) {
+    //   WebView.platform = AndroidWebView();
+    // }
   }
 
   @override

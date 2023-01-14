@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
+
 import 'package:flutterd/models/shared_preferences.dart';
 import 'package:flutterd/models/themes_configuration.dart';
 

@@ -21,6 +21,7 @@ mixin PlatformMixin {
   static const String iconCameraAlt = 'camera_alt';
   static const String iconCameraAltOutlined = 'camera_alt_outlined';
   static const String iconCheck = 'check';
+  static const String iconCircle = 'circle';
   static const String iconClear = 'clear';
   static const String iconClose = 'close';
   static const String iconColor = 'color';
