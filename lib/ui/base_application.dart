@@ -1,6 +1,7 @@
 import 'dart:io' show Platform;
 
 import 'package:flutter/widgets.dart';
+import 'package:flutterd/app_config.dart';
 
 import 'package:flutterd/models/themes_configuration.dart';
 import 'package:flutterd/ui/base_application_factory.dart';
@@ -16,7 +17,9 @@ import 'package:flutterd/utils/utilities.dart';
 abstract class BaseApplication {
   static final Map<AppTypes, BaseApplicationFactory> map = {};
 
-  init(ThemeTypes themes) {
+  init<T extends BaseConfig>(ThemeTypes themes, ConfigConstructionFunc<T> func) async {
+    Utilities.config = await AppConfigFactory.forEnvironment<T>(func);
+
     ThemesConfiguration.init(themes);
 
     NavigationBarMenu.init(initNavigationBar());
