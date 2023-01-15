@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/gestures.dart';
+import 'package:flutterd/app_config.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
@@ -33,6 +34,7 @@ class Copyright {
 }
 
 class Utilities {
+  static BaseConfig? config;
   static Copyright? copyright;
 
   static String convertToFixedDecimal(double? value) {

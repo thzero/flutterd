@@ -19,8 +19,8 @@ abstract class BaseNavigationBarMenu {
   final List<NavigationBarMenuItem> menuList = [];
   init();
 
-  add(String title, IconData? icon, String route) {
-    menuList.add(NavigationBarMenuItem(title, icon, route));
+  add(String title, IconData? icon, String route, {bool isLink = false}) {
+    menuList.add(NavigationBarMenuItem(title, icon, route, isLink));
   }
 
   String title(BuildContext context, String tag);
@@ -33,6 +33,7 @@ class NavigationBarMenuItem {
   final String title;
   final IconData? icon;
   final String route;
+  final bool isLink;
 
-  const NavigationBarMenuItem(this.title, this.icon, this.route);
+  const NavigationBarMenuItem(this.title, this.icon, this.route, this.isLink);
 }

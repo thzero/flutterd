@@ -5,6 +5,9 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:flutter_titled_container/flutter_titled_container.dart';
 
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
+
 import 'package:tap_debouncer/tap_debouncer.dart';
 
 import 'package:flutterd/ui/navigation_bar_menu.dart';
@@ -64,6 +67,11 @@ mixin PlatformMixin {
   Widget constructExpansion(BuildContext context, String title, List<Widget> content, {String? subTitle, bool initiallyExpanded = true, bool maintainState = true, ValueChanged<bool>? onExpansionChanged});
   Widget constructNavigationBarMenu(BuildContext context);
   constructNavigationBarMenuSelected(BuildContext context, NavigationBarMenuItem value) {
+    if (value.isLink) {
+      launchUrl(Uri.parse(value.route), mode: LaunchMode.externalApplication);
+      return;
+    }
+
     Navigator.pushNamed(context, value.route);
   }
 
