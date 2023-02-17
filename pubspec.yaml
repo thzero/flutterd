@@ -41,10 +41,10 @@ dependencies:
     git:
       url: https://github.com/thzero/flutter_titled_container
       ref: dev
+  intl: ^0.17.0 # flutter_localizations requires 0.17 still
   
   flutter_localizations: # add this line
     sdk: flutter 
-  intl: ^0.17.0 # flutter_localizations requires 0.17 still
 
 dev_dependencies:
   flutter_test:
