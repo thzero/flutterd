@@ -1,28 +1,40 @@
-class UpdateResponse {
+class Response {
   final bool success;
   final String? message;
   final int? code;
 
-  UpdateResponse(this.success, {this.message, this.code});
+  Response(this.success, {this.message, this.code});
 
-  static isFailure() {
-    return UpdateResponse(false);
+  static bool hasFailed(Response? response) {
+    return response == null || !response.success;
   }
 
-  static isFailureDirty() {
-    return UpdateResponse(false, code: codeDirty);
+  static bool hasSucceed(Response? response) {
+    return response != null && response.success;
   }
 
-  static isFailureFound() {
-    return UpdateResponse(false, code: codeFound);
+  static Response isFailure() {
+    return Response(false);
   }
 
-  static isFailureNotFound() {
-    return UpdateResponse(false, code: codeNotFound);
+  static Response isFailureDirty() {
+    return Response(false, code: codeDirty);
   }
 
-  static isSuccess() {
-    return UpdateResponse(true);
+  static Response isFailureFound() {
+    return Response(false, code: codeFound);
+  }
+
+  static Response isFailureNotFound() {
+    return Response(false, code: codeNotFound);
+  }
+
+  static Response isSuccess() {
+    return Response(true);
+  }
+
+  static Response isSuccessNotFound() {
+    return Response(true, code: codeNotFound);
   }
 
   static int codeDirty = 1;
@@ -30,24 +42,68 @@ class UpdateResponse {
   static int codeNotFound = 3;
 }
 
-class UpdateResponseData<T> extends UpdateResponse {
+class UpdateResponse extends Response {
+  UpdateResponse(bool success, {String? message, int? code}) : super(success, message: message, code: code);
+
+  static bool hasFailed(UpdateResponse? response) {
+    return response == null || !response.success;
+  }
+
+  static bool hasSucceed(UpdateResponse? response) {
+    return response != null && response.success;
+  }
+
+  static UpdateResponse isFailure() {
+    return UpdateResponse(false);
+  }
+
+  static UpdateResponse isFailureDirty() {
+    return UpdateResponse(false, code: Response.codeDirty);
+  }
+
+  static UpdateResponse isFailureFound() {
+    return UpdateResponse(false, code: Response.codeFound);
+  }
+
+  static UpdateResponse isFailureNotFound() {
+    return UpdateResponse(false, code: Response.codeNotFound);
+  }
+
+  static UpdateResponse isSuccess() {
+    return UpdateResponse(true);
+  }
+
+  static UpdateResponse isSuccessNotFound() {
+    return UpdateResponse(true, code: Response.codeNotFound);
+  }
+}
+
+class ResponseData<T> extends Response {
   final T? data;
 
-  UpdateResponseData(this.data, bool success, {String? message, int? code}) : super(success, message: message, code: code);
+  ResponseData(this.data, bool success, {String? message, int? code}) : super(success, message: message, code: code);
 
-  static isFailure<T>(T? data) {
-    return UpdateResponseData<T>(data, false);
+  static bool hasFailed(ResponseData? response) {
+    return response == null || !response.success || response.data == null;
   }
 
-  static isFailureDirty<T>(T? data) {
-    return UpdateResponseData<T>(data, false, code: UpdateResponse.codeDirty);
+  static bool hasSucceed(ResponseData? response) {
+    return response != null && response.success && response.data != null;
   }
 
-  static isFailureNotFound<T>(T? data) {
-    return UpdateResponseData<T>(data, false, code: UpdateResponse.codeNotFound);
+  static ResponseData<T> isFailure<T>() {
+    return ResponseData<T>(null, false);
   }
 
-  static isSuccess<T>(T data) {
-    return UpdateResponseData<T>(data, true);
+  static ResponseData<T> isFailureDirty<T>() {
+    return ResponseData<T>(null, false, code: Response.codeDirty);
+  }
+
+  static ResponseData<T> isFailureNotFound<T>() {
+    return ResponseData<T>(null, false, code: Response.codeNotFound);
+  }
+
+  static ResponseData<T> isSuccess<T>(T? data) {
+    return ResponseData<T>(data, true);
   }
 }
