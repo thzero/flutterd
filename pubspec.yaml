@@ -21,27 +21,29 @@ dependencies:
     # path: ../flutterd_logging_wrapper
     git:
       url: https://github.com/thzero/flutterd_logging_wrapper
-  path_provider: ^2.0.12
-  package_info_plus: ^3.0.3
-  shared_preferences: ^2.0.17
-  http: ^0.13.5  #  HTTP Helper. From https://pub.dev/packages/http
+  path_provider: ^2.0.14
+  package_info_plus: ^3.1.2
+  shared_preferences: ^2.1.0
+  http: ^0.13.6  #  HTTP Helper. From https://pub.dev/packages/http
   sprintf: ^7.0.0
   bloc: ^8.1.1
   flutter_bloc: ^8.1.2
-  flutter_i18n: ^0.32.4
-  flex_color_scheme: ^6.1.1
+  # flutter_i18n: ^0.32.5
+  flutter_i18n:
+    path: ../flutter_i18n
+  flex_color_scheme: ^7.0.5
   flutter_settings_ui: ^2.0.1
   tap_debouncer: ^2.0.2
-  webview_flutter: ^4.0.2
-  url_launcher: ^6.1.9
-  image_picker: ^0.8.6+1
+  webview_flutter: ^4.2.0
+  url_launcher: ^6.1.10
+  image_picker: ^0.8.7+4
   flutter_colorpicker: ^1.0.3
   flutter_titled_container: 
     # path: ../flutter_titled_container
     git:
       url: https://github.com/thzero/flutter_titled_container
       ref: dev
-  intl: ^0.17.0 # flutter_localizations requires 0.17 still
+  intl: ^0.18.1
   
   flutter_localizations: # add this line
     sdk: flutter 
@@ -49,7 +51,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  bloc_test: ^9.1.0
+  bloc_test: ^9.1.1
   build_runner: ^2.3.0
 
   flutter_lints: ^2.0.0
