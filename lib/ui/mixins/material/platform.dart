@@ -284,7 +284,7 @@ mixin MaterialPlatformMixin on PlatformMixin {
 
   @override
   Widget constructTextHeader(BuildContext context, String valueOrId, {bool isId = true}) {
-    return Text(isId ? FlutterI18n.translate(context, valueOrId) : valueOrId, style: Theme.of(context).textTheme.headline6);
+    return Text(isId ? FlutterI18n.translate(context, valueOrId) : valueOrId, style: Theme.of(context).textTheme.titleLarge);
   }
 
   @override
@@ -635,17 +635,17 @@ mixin MaterialPlatformMixin on PlatformMixin {
 
   @override
   TextStyle? textStyleHeading(BuildContext context) {
-    return Theme.of(context).textTheme.headline6;
+    return Theme.of(context).textTheme.titleLarge;
   }
 
   @override
   TextStyle? getTextStyleSubTitle(BuildContext context) {
-    return Theme.of(context).textTheme.subtitle1;
+    return Theme.of(context).textTheme.titleMedium;
   }
 
   @override
   TextStyle? textStyleText(BuildContext context) {
-    return Theme.of(context).textTheme.bodyText2;
+    return Theme.of(context).textTheme.bodyMedium;
   }
 
   _convertActionButtonLocation(String? actionButtonLocation) {
