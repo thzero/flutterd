@@ -154,8 +154,14 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  Widget constructDivider(BuildContext context) {
-    return const Divider();
+  Widget constructDivider(BuildContext context, {double? height, double? thickness, double? indent, double? endIndent, Color? color}) {
+    return Divider(
+      height: height,
+      thickness: thickness,
+      indent: indent,
+      endIndent: endIndent,
+      color: color,
+    );
   }
 
   @override
@@ -279,6 +285,20 @@ mixin MaterialPlatformMixin on PlatformMixin {
   @override
   Widget constructTextHeader(BuildContext context, String valueOrId, {bool isId = true}) {
     return Text(isId ? FlutterI18n.translate(context, valueOrId) : valueOrId, style: Theme.of(context).textTheme.headline6);
+  }
+
+  @override
+  Widget constructWell(BuildContext context, Widget widget, TapDebouncerFunc? onTapFunc, {int cooldown = 500, TapDebouncerFunc? onDoubleTapFunc, TextStyle? style}) {
+    return TapDebouncer(
+        cooldown: Duration(milliseconds: cooldown),
+        onTap: onTapFunc,
+        builder: (BuildContext context, TapDebouncerFunc? onTap) {
+          return InkWell(
+            onTap: onTap,
+            onDoubleTap: onDoubleTapFunc,
+            child: widget,
+          );
+        });
   }
 
   @override

@@ -63,7 +63,7 @@ mixin PlatformMixin {
     Widget? title,
     Widget? content,
   });
-  Widget constructDivider(BuildContext context);
+  Widget constructDivider(BuildContext context, {double? height, double? thickness, double? indent, double? endIndent, Color? color});
   Widget constructExpansion(BuildContext context, String title, List<Widget> content, {String? subTitle, bool initiallyExpanded = true, bool maintainState = true, ValueChanged<bool>? onExpansionChanged});
   Widget constructNavigationBarMenu(BuildContext context);
   constructNavigationBarMenuSelected(BuildContext context, NavigationBarMenuItem value) {
@@ -183,6 +183,7 @@ mixin PlatformMixin {
 
   Widget constructTextHeader(BuildContext context, String valueOrId, {bool isId = true});
   Widget constructTextTap(BuildContext context, TapDebouncerFunc? onTapFunc, String title, {int cooldown = 500, bool disabled = false, TapDebouncerFunc? onDoubleTapFunc, TextStyle? style});
+  Widget constructWell(BuildContext context, Widget widget, TapDebouncerFunc? onTapFunc, {int cooldown = 500, TapDebouncerFunc? onDoubleTapFunc, TextStyle? style});
 
   IconData determineIcon(String iconType);
 
