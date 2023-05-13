@@ -57,6 +57,14 @@ class Utilities {
     return const Uuid().v4();
   }
 
+  static String hideNonWhitespace(String? value) {
+    if (value == null || value.isEmpty) {
+      return '';
+    }
+
+    return value.replaceAll(RegExp(r'\S'), '*');
+  }
+
   static bool isEmpty(String? value) {
     return value == null || value.isEmpty;
   }
