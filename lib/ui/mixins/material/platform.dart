@@ -154,6 +154,22 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
+  Widget constructDialogPopup(BuildContext context, String label, String? value) {
+    return AlertDialog(
+      content: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Expanded(
+            child: constructTextFieldOutlineContainer(context, label, value),
+          )
+        ],
+      ),
+      actions: [constructButtonTap(context, () async => Navigator.pop(context), FlutterI18n.translate(context, 'button_dismiss'))],
+    );
+  }
+
+  @override
   Widget constructDivider(BuildContext context, {double? height, double? thickness, double? indent, double? endIndent, Color? color}) {
     return Divider(
       height: height,

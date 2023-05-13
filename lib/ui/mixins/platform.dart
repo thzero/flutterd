@@ -63,6 +63,7 @@ mixin PlatformMixin {
     Widget? title,
     Widget? content,
   });
+  Widget constructDialogPopup(BuildContext context, String label, String? value);
   Widget constructDivider(BuildContext context, {double? height, double? thickness, double? indent, double? endIndent, Color? color});
   Widget constructExpansion(BuildContext context, String title, List<Widget> content, {String? subTitle, bool initiallyExpanded = true, bool maintainState = true, ValueChanged<bool>? onExpansionChanged});
   Widget constructNavigationBarMenu(BuildContext context);
