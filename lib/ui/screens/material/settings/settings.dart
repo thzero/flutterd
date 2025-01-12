@@ -21,9 +21,9 @@ class MaterialSettingsScreen extends SettingsScreen {
         return Container(
           padding: const EdgeInsets.only(top: 5),
           child: SettingsList(sections: [
-            SettingsSection(title: commons(context), tiles: [
+            SettingsSection(title: Text(commons(context)), tiles: [
               SettingsTile(
-                title: theme(context),
+                title: Text(theme(context)),
                 leading: const Icon(Icons.colorize),
                 trailing: Text(context.select((ThemeBloc bloc) => bloc.state.themeAsString(context))),
                 onPressed: (context) {

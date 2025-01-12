@@ -6,7 +6,6 @@ import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:flutter_titled_container/flutter_titled_container.dart';
 
 import 'package:url_launcher/url_launcher.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 import 'package:tap_debouncer/tap_debouncer.dart';
 
@@ -76,89 +75,92 @@ mixin PlatformMixin {
     Navigator.pushNamed(context, value.route);
   }
 
-  Widget constructOutlineContainer(BuildContext context, String label, Widget widget) {
-    double fontSize = getOutlineTitledContainerFontSize(context) ?? 12.0;
-    return Padding(
-        padding: EdgeInsets.fromLTRB(0, fontSize + 4, 0, 0),
-        child: TitledContainer(
-            titleColor: getOutlineTitledContainerColorTitle(context) ?? getOutlineTitledContainerColorTitleAlt(context),
-            title: label,
-            fontSize: fontSize,
-            fontWeight: FontWeight.bold,
-            textAlign: TextAlignTitledContainer.left,
-            backgroundColor: getOutlineColorBackground(context),
-            child: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: getOutlineTitledContainerColor(context),
-                    border: Border.all(
-                      color: getOutlineTitledContainerColorBorder(context),
-                      width: 1.2,
-                    ),
-                    borderRadius: getOutlineTitledContainerBorderRadius(context)),
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(10.0, 16.0, 10.0, 16.0),
-                  child: widget,
-                ))));
-  }
+  // TODO: Figure out theme to match readonly Text.
+  Widget constructOutlineContainer(BuildContext context, String label, Widget widget);
+  // Widget constructOutlineContainer(BuildContext context, String label, Widget widget) {
+  //   double fontSize = getOutlineTitledContainerFontSize(context) ?? 12.0;
+  //   // return Padding(
+  //   //     padding: EdgeInsets.fromLTRB(0, fontSize + 4, 0, 0),
+  //   //     child: TitledContainer(
+  //   //         titleColor: getOutlineTitledContainerColorTitle(context) ?? getOutlineTitledContainerColorTitleAlt(context),
+  //   //         title: label,
+  //   //         fontSize: fontSize,
+  //   //         fontWeight: FontWeight.bold,
+  //   //         textAlign: TextAlignTitledContainer.left,
+  //   //         backgroundColor: getOutlineColorBackground(context),
+  //   //         child: Container(
+  //   //             width: double.infinity,
+  //   //             decoration: BoxDecoration(
+  //   //                 color: getOutlineTitledContainerColor(context),
+  //   //                 border: Border.all(
+  //   //                   color: getOutlineTitledContainerColorBorder(context),
+  //   //                   width: 1.2,
+  //   //                 ),
+  //   //                 borderRadius: getOutlineTitledContainerBorderRadius(context)),
+  //   //             child: Padding(
+  //   //               padding: const EdgeInsets.fromLTRB(10.0, 16.0, 10.0, 16.0),
+  //   //               child: widget,
+  //   //             ))));
 
-  Widget constructTextOutlineContainer(BuildContext context, String label, String? text) {
-    double fontSize = getOutlineTitledContainerFontSize(context) ?? 12.0;
-    return Padding(
-        padding: EdgeInsets.fromLTRB(0, fontSize + 4, 0, 0),
-        child: TitledContainer(
-            titleColor: getOutlineTitledContainerColorTitle(context) ?? getOutlineTitledContainerColorTitleAlt(context),
-            title: label,
-            fontSize: fontSize,
-            fontWeight: FontWeight.bold,
-            textAlign: TextAlignTitledContainer.left,
-            backgroundColor: getOutlineColorBackground(context),
-            child: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: getOutlineTitledContainerColor(context),
-                    border: Border.all(
-                      color: getOutlineTitledContainerColorBorder(context),
-                      width: 1.2,
-                    ),
-                    borderRadius: getOutlineTitledContainerBorderRadius(context)),
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(10.0, 16.0, 10.0, 16.0),
-                  child: Text(text ?? '',
-                      style: getTextStyleSubTitle(context)!.merge(
-                        const TextStyle(fontWeight: FontWeight.normal),
-                      )),
-                ))));
-    // return Column(children: [
-    //   Padding(
-    //       padding: EdgeInsets.fromLTRB(0, fontSize + 4, 0, 0),
-    //       child: TitledContainer(
-    //           titleColor: Theme.of(context).inputDecorationTheme.floatingLabelStyle!.color ?? Theme.of(context).inputDecorationTheme.focusedBorder!.borderSide.color,
-    //           title: label,
-    //           fontSize: fontSize,
-    //           fontWeight: FontWeight.bold,
-    //           textAlign: TextAlignTitledContainer.left,
-    //           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-    //           child: Expanded(
-    //               child: Container(
-    //             width: double.infinity,
-    //             decoration: BoxDecoration(
-    //                 color: Theme.of(context).inputDecorationTheme.fillColor,
-    //                 border: Border.all(
-    //                   color: Theme.of(context).inputDecorationTheme.focusedBorder!.borderSide.color,
-    //                   width: 1.2,
-    //                 ),
-    //                 borderRadius: (Theme.of(context).inputDecorationTheme.focusedBorder! as OutlineInputBorder).borderRadius),
-    //             child: Padding(
-    //               padding: const EdgeInsets.fromLTRB(10.0, 16.0, 10.0, 16.0),
-    //               child: Text(text ?? '',
-    //                   style: getTextStyleSubTitle(context)!.merge(
-    //                         const TextStyle(fontWeight: FontWeight.normal),
-    //                       )),
-    //             ),
-    //           ))))
-    // ]);
-  }
+  // TODO: Figure out theme to match readonly Text.
+  Widget constructTextOutlineContainer(BuildContext context, String label, String? text);
+  // Widget constructTextOutlineContainer(BuildContext context, String label, String? text) {
+  //   double fontSize = getOutlineTitledContainerFontSize(context) ?? 12.0;
+  //   return Padding(
+  //       padding: EdgeInsets.fromLTRB(0, fontSize + 4, 0, 0),
+  //       child: TitledContainer(
+  //           titleColor: getOutlineTitledContainerColorTitle(context) ?? getOutlineTitledContainerColorTitleAlt(context),
+  //           title: label,
+  //           fontSize: fontSize,
+  //           fontWeight: FontWeight.bold,
+  //           textAlign: TextAlignTitledContainer.left,
+  //           backgroundColor: getOutlineColorBackground(context),
+  //           child: Container(
+  //               width: double.infinity,
+  //               decoration: BoxDecoration(
+  //                   color: getOutlineTitledContainerColor(context),
+  //                   border: Border.all(
+  //                     color: getOutlineTitledContainerColorBorder(context),
+  //                     width: 1.2,
+  //                   ),
+  //                   borderRadius: getOutlineTitledContainerBorderRadius(context)),
+  //               child: Padding(
+  //                 padding: const EdgeInsets.fromLTRB(10.0, 16.0, 10.0, 16.0),
+  //                 child: Text(text ?? '',
+  //                     style: getTextStyleSubTitle(context)!.merge(
+  //                       const TextStyle(fontWeight: FontWeight.normal),
+  //                     )),
+  //               ))));
+  //   // return Column(children: [
+  //   //   Padding(
+  //   //       padding: EdgeInsets.fromLTRB(0, fontSize + 4, 0, 0),
+  //   //       child: TitledContainer(
+  //   //           titleColor: Theme.of(context).inputDecorationTheme.floatingLabelStyle!.color ?? Theme.of(context).inputDecorationTheme.focusedBorder!.borderSide.color,
+  //   //           title: label,
+  //   //           fontSize: fontSize,
+  //   //           fontWeight: FontWeight.bold,
+  //   //           textAlign: TextAlignTitledContainer.left,
+  //   //           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+  //   //           child: Expanded(
+  //   //               child: Container(
+  //   //             width: double.infinity,
+  //   //             decoration: BoxDecoration(
+  //   //                 color: Theme.of(context).inputDecorationTheme.fillColor,
+  //   //                 border: Border.all(
+  //   //                   color: Theme.of(context).inputDecorationTheme.focusedBorder!.borderSide.color,
+  //   //                   width: 1.2,
+  //   //                 ),
+  //   //                 borderRadius: (Theme.of(context).inputDecorationTheme.focusedBorder! as OutlineInputBorder).borderRadius),
+  //   //             child: Padding(
+  //   //               padding: const EdgeInsets.fromLTRB(10.0, 16.0, 10.0, 16.0),
+  //   //               child: Text(text ?? '',
+  //   //                   style: getTextStyleSubTitle(context)!.merge(
+  //   //                         const TextStyle(fontWeight: FontWeight.normal),
+  //   //                       )),
+  //   //             ),
+  //   //           ))))
+  //   // ]);
+  // }
 
   PageRoute<T> constructPageRoute<T>(
     WidgetBuilder builder, {
@@ -188,12 +190,13 @@ mixin PlatformMixin {
 
   IconData determineIcon(String iconType);
 
-  Color? getOutlineColorBackground(BuildContext context);
-  BorderRadiusGeometry? getOutlineTitledContainerBorderRadius(BuildContext context);
-  Color? getOutlineTitledContainerColor(BuildContext context);
-  Color getOutlineTitledContainerColorBorder(BuildContext context);
-  Color? getOutlineTitledContainerColorTitle(BuildContext context);
-  Color? getOutlineTitledContainerColorTitleAlt(BuildContext context);
+  // TODO: May not be needed if not using the TitledContainer
+  // Color? getOutlineColorBackground(BuildContext context);
+  // BorderRadiusGeometry? getOutlineTitledContainerBorderRadius(BuildContext context);
+  // Color? getOutlineTitledContainerColor(BuildContext context);
+  // Color getOutlineTitledContainerColorBorder(BuildContext context);
+  // Color? getOutlineTitledContainerColorTitle(BuildContext context);
+  // Color? getOutlineTitledContainerColorTitleAlt(BuildContext context);
   double? getOutlineTitledContainerFontSize(BuildContext context);
 
   showDialogAlert(BuildContext context, WidgetBuilder builder, Function(dynamic) onSuccess);

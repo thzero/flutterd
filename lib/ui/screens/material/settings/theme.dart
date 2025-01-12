@@ -23,7 +23,7 @@ class MaterialThemeSettingsScreen extends StatelessWidget {
   List<SettingsSection> _sections(BuildContext context, ThemeState state) {
     // SettingsSection(title: AppLocalizations.of(context)!.theme, tiles: _tilesThemes(context, state))
     List<SettingsSection> output = [];
-    output.add(SettingsSection(title: FlutterI18n.translate(context, 'title_theme'), tiles: _tilesThemes(context, state)));
+    output.add(SettingsSection(title: Text(FlutterI18n.translate(context, 'title_theme')), tiles: _tilesThemes(context, state)));
     output.addAll(_sectionsAdditional);
     return output;
   }
@@ -56,7 +56,7 @@ class MaterialThemeSettingsScreen extends StatelessWidget {
     ThemesConfiguration.themes.forEach((key, value) {
       list.add(SettingsTile(
         // title: AppLocalizations.of(context)!.theme_blue,
-        title: FlutterI18n.translate(context, 'theme_${value.name}'),
+        title: Text(FlutterI18n.translate(context, 'theme_${value.name}')),
         trailing: _trailingWidget(state, key),
         onPressed: (BuildContext context) {
           _changeTheme(context, key);
