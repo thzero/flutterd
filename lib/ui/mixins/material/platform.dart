@@ -569,7 +569,7 @@ mixin MaterialPlatformMixin on PlatformMixin {
       child: InputDecorator(
           isFocused: false,
           decoration: InputDecoration(
-            border: OutlineInputBorder(),
+            border: const OutlineInputBorder(),
             labelText: label,
           ),
           child: widget),
@@ -585,7 +585,7 @@ mixin MaterialPlatformMixin on PlatformMixin {
         child: InputDecorator(
           isFocused: false,
           decoration: InputDecoration(
-            border: OutlineInputBorder(),
+            border: const OutlineInputBorder(),
             labelText: label,
           ),
           child: Padding(
