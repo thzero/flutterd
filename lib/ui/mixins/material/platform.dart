@@ -40,7 +40,7 @@ const List<Color> colors = [
 mixin MaterialPlatformMixin on PlatformMixin {
   @override
   Color colorBorder(BuildContext context) {
-    return Colors.black12.withOpacity(0.6);
+    return Colors.black12.withValues(alpha: 0.6);
   }
 
   @override
