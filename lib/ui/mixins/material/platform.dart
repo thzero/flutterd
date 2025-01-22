@@ -40,7 +40,7 @@ const List<Color> colors = [
 mixin MaterialPlatformMixin on PlatformMixin {
   @override
   Color colorBorder(BuildContext context) {
-    return Colors.black12.withOpacity(0.6);
+    return Colors.black12.withValues(alpha: 0.6);
   }
 
   @override
@@ -49,7 +49,9 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  Widget constructButton(BuildContext context, VoidCallback? onPressed, String title, {bool disabled = false}) {
+  Widget constructButton(
+      BuildContext context, VoidCallback? onPressed, String title,
+      {bool disabled = false}) {
     return ElevatedButton(
       onPressed: onPressed,
       child: Text(title),
@@ -57,7 +59,9 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  Widget constructButtonIcon(BuildContext context, VoidCallback? onPressed, String iconType, {bool disabled = false}) {
+  Widget constructButtonIcon(
+      BuildContext context, VoidCallback? onPressed, String iconType,
+      {bool disabled = false}) {
     IconData icon = determineIcon(iconType);
     return IconButton(
       icon: Icon(icon),
@@ -66,7 +70,9 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  Widget constructButtonTap(BuildContext context, TapDebouncerFunc? onTapFunc, String title, {int cooldown = 500, bool disabled = false}) {
+  Widget constructButtonTap(
+      BuildContext context, TapDebouncerFunc? onTapFunc, String title,
+      {int cooldown = 500, bool disabled = false}) {
     if (disabled) {
       return ElevatedButton(
         onPressed: null,
@@ -86,7 +92,9 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  Widget constructButtonTapIcon(BuildContext context, TapDebouncerFunc? onTapFunc, String iconType, {int cooldown = 500, bool disabled = false}) {
+  Widget constructButtonTapIcon(
+      BuildContext context, TapDebouncerFunc? onTapFunc, String iconType,
+      {int cooldown = 500, bool disabled = false}) {
     IconData icon = determineIcon(iconType);
 
     if (disabled) {
@@ -108,7 +116,8 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  Widget constructCheckboxOutline(BuildContext context, String label, bool? value) {
+  Widget constructCheckboxOutline(
+      BuildContext context, String label, bool? value) {
     return constructOutlineContainer(
         context,
         label,
@@ -119,12 +128,14 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  StatelessWidget constructCard(BuildContext context, Widget child, {double? height, double? width}) {
+  StatelessWidget constructCard(BuildContext context, Widget child,
+      {double? height, double? width}) {
     return Card(child: child);
   }
 
   @override
-  Widget constructDialogAlert(BuildContext context, Widget? content, List<Widget>? actions) {
+  Widget constructDialogAlert(
+      BuildContext context, Widget? content, List<Widget>? actions) {
     return AlertDialog(
       content: content,
       actions: actions,
@@ -154,12 +165,48 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  Widget constructDivider(BuildContext context) {
-    return const Divider();
+  Widget constructDialogPopup(
+      BuildContext context, String label, String? value) {
+    return AlertDialog(
+      content: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Expanded(
+            child: constructTextFieldOutlineContainer(context, label, value),
+          )
+        ],
+      ),
+      actions: [
+        constructButtonTap(context, () async => Navigator.pop(context),
+            FlutterI18n.translate(context, 'button_dismiss'))
+      ],
+    );
   }
 
   @override
-  Widget constructExpansion(BuildContext context, String title, List<Widget> content, {String? subTitle, bool initiallyExpanded = true, bool maintainState = true, ValueChanged<bool>? onExpansionChanged}) {
+  Widget constructDivider(BuildContext context,
+      {double? height,
+      double? thickness,
+      double? indent,
+      double? endIndent,
+      Color? color}) {
+    return Divider(
+      height: height,
+      thickness: thickness,
+      indent: indent,
+      endIndent: endIndent,
+      color: color,
+    );
+  }
+
+  @override
+  Widget constructExpansion(
+      BuildContext context, String title, List<Widget> content,
+      {String? subTitle,
+      bool initiallyExpanded = true,
+      bool maintainState = true,
+      ValueChanged<bool>? onExpansionChanged}) {
     return ExpansionTile(
       title: Text(title),
       subtitle: Utilities.isNotEmpty(subTitle) ? Text(subTitle!) : null,
@@ -177,7 +224,8 @@ mixin MaterialPlatformMixin on PlatformMixin {
         constructNavigationBarMenuSelected(context, result);
       },
       itemBuilder: (BuildContext context) {
-        return NavigationBarMenu.menuList.menuList.map((NavigationBarMenuItem item) {
+        return NavigationBarMenu.menuList.menuList
+            .map((NavigationBarMenuItem item) {
           return PopupMenuItem<NavigationBarMenuItem>(
             value: item,
             child: ListTile(
@@ -198,7 +246,11 @@ mixin MaterialPlatformMixin on PlatformMixin {
     bool maintainState = true,
     bool fullscreenDialog = false,
   }) {
-    return MaterialPageRoute<T>(builder: builder, settings: settings, maintainState: maintainState, fullscreenDialog: fullscreenDialog);
+    return MaterialPageRoute<T>(
+        builder: builder,
+        settings: settings,
+        maintainState: maintainState,
+        fullscreenDialog: fullscreenDialog);
   }
 
   @override
@@ -224,18 +276,26 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  StatefulWidget constructScaffold(BuildContext context, Widget body, String title, {Widget? bottomNavigationBar, List<Widget>? actions, Widget? actionButton, String? actionButtonLocation, bool? resizeToAvoidBottomInset}) {
+  StatefulWidget constructScaffold(
+      BuildContext context, Widget body, String title,
+      {Widget? bottomNavigationBar,
+      List<Widget>? actions,
+      Widget? actionButton,
+      String? actionButtonLocation,
+      bool? resizeToAvoidBottomInset}) {
     return Scaffold(
         resizeToAvoidBottomInset: resizeToAvoidBottomInset ?? false,
         appBar: AppBar(title: Text(title), actions: actions),
         body: body,
         bottomNavigationBar: bottomNavigationBar,
         floatingActionButton: actionButton,
-        floatingActionButtonLocation: _convertActionButtonLocation(actionButtonLocation));
+        floatingActionButtonLocation:
+            _convertActionButtonLocation(actionButtonLocation));
   }
 
   @override
-  Widget constructText(BuildContext context, String valueOrId, {bool isId = true, TextStyle? style}) {
+  Widget constructText(BuildContext context, String valueOrId,
+      {bool isId = true, TextStyle? style}) {
     return Text(
       isId ? FlutterI18n.translate(context, valueOrId) : valueOrId,
       style: style,
@@ -243,7 +303,12 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  Widget constructTextTap(BuildContext context, TapDebouncerFunc? onTapFunc, String title, {int cooldown = 500, bool disabled = false, TapDebouncerFunc? onDoubleTapFunc, TextStyle? style}) {
+  Widget constructTextTap(
+      BuildContext context, TapDebouncerFunc? onTapFunc, String title,
+      {int cooldown = 500,
+      bool disabled = false,
+      TapDebouncerFunc? onDoubleTapFunc,
+      TextStyle? style}) {
     if (disabled) {
       return Text(
         title,
@@ -267,7 +332,9 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  Widget constructTextFieldOutline(BuildContext context, TextEditingController controller, String label, {GestureTapCallback? onTap}) {
+  Widget constructTextFieldOutline(
+      BuildContext context, TextEditingController controller, String label,
+      {GestureTapCallback? onTap}) {
     return TextField(
       controller: controller,
       decoration: InputDecoration(labelText: label),
@@ -277,8 +344,28 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  Widget constructTextHeader(BuildContext context, String valueOrId, {bool isId = true}) {
-    return Text(isId ? FlutterI18n.translate(context, valueOrId) : valueOrId, style: Theme.of(context).textTheme.headline6);
+  Widget constructTextHeader(BuildContext context, String valueOrId,
+      {bool isId = true}) {
+    return Text(isId ? FlutterI18n.translate(context, valueOrId) : valueOrId,
+        style: Theme.of(context).textTheme.titleLarge);
+  }
+
+  @override
+  Widget constructWell(
+      BuildContext context, Widget widget, TapDebouncerFunc? onTapFunc,
+      {int cooldown = 500,
+      TapDebouncerFunc? onDoubleTapFunc,
+      TextStyle? style}) {
+    return TapDebouncer(
+        cooldown: Duration(milliseconds: cooldown),
+        onTap: onTapFunc,
+        builder: (BuildContext context, TapDebouncerFunc? onTap) {
+          return InkWell(
+            onTap: onTap,
+            onDoubleTap: onDoubleTapFunc,
+            child: widget,
+          );
+        });
   }
 
   @override
@@ -468,35 +555,148 @@ mixin MaterialPlatformMixin on PlatformMixin {
     return icon;
   }
 
+  // @override
+  // Color? getOutlineColorBackground(BuildContext context) {
+  //   return Theme.of(context).scaffoldBackgroundColor;
+  // }
+
   @override
-  Color? getOutlineColorBackground(BuildContext context) {
-    return Theme.of(context).scaffoldBackgroundColor;
+  Widget constructOutlineContainer(
+      BuildContext context, String label, Widget widget) {
+    double fontSize = getOutlineTitledContainerFontSize(context) ?? 12.0;
+    return Container(
+      padding: EdgeInsets.fromLTRB(0, fontSize + 4, 0, 0),
+      child: InputDecorator(
+          isFocused: false,
+          decoration: InputDecoration(
+            border: const OutlineInputBorder(),
+            labelText: label,
+          ),
+          child: widget),
+    );
   }
 
   @override
-  BorderRadiusGeometry? getOutlineTitledContainerBorderRadius(BuildContext context) {
-    return (Theme.of(context).inputDecorationTheme.focusedBorder! as OutlineInputBorder).borderRadius;
+  Widget constructTextOutlineContainer(
+      BuildContext context, String label, String? text) {
+    double fontSize = getOutlineTitledContainerFontSize(context) ?? 12.0;
+    return Container(
+        padding: EdgeInsets.fromLTRB(0, fontSize + 4, 0, 0),
+        child: InputDecorator(
+          isFocused: false,
+          decoration: InputDecoration(
+            border: const OutlineInputBorder(),
+            labelText: label,
+          ),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(10.0, 16.0, 10.0, 16.0),
+            child: Text(text ?? '',
+                style: getTextStyleSubTitle(context)!.merge(
+                  const TextStyle(fontWeight: FontWeight.normal),
+                )),
+          ),
+        ));
+    // return Padding(
+    //     padding: EdgeInsets.fromLTRB(0, fontSize + 4, 0, 0),
+    //     child: TitledContainer(
+    //         titleColor: getOutlineTitledContainerColorTitle(context) ??
+    //             getOutlineTitledContainerColorTitleAlt(context),
+    //         title: label,
+    //         fontSize: fontSize,
+    //         fontWeight: FontWeight.bold,
+    //         textAlign: TextAlignTitledContainer.left,
+    //         backgroundColor: getOutlineColorBackground(context),
+    //         child: Container(
+    //             width: double.infinity,
+    //             decoration: BoxDecoration(
+    //                 color: getOutlineTitledContainerColor(context),
+    //                 border: Border.all(
+    //                   color: getOutlineTitledContainerColorBorder(context),
+    //                   width: 1.2,
+    //                 ),
+    //                 borderRadius:
+    //                     getOutlineTitledContainerBorderRadius(context)),
+    //             child: Padding(
+    //               padding: const EdgeInsets.fromLTRB(10.0, 16.0, 10.0, 16.0),
+    //               child: Text(text ?? '',
+    //                   style: getTextStyleSubTitle(context)!.merge(
+    //                     const TextStyle(fontWeight: FontWeight.normal),
+    //                   )),
+    //             ))));
+    // return Column(children: [
+    //   Padding(
+    //       padding: EdgeInsets.fromLTRB(0, fontSize + 4, 0, 0),
+    //       child: TitledContainer(
+    //           titleColor: Theme.of(context).inputDecorationTheme.floatingLabelStyle!.color ?? Theme.of(context).inputDecorationTheme.focusedBorder!.borderSide.color,
+    //           title: label,
+    //           fontSize: fontSize,
+    //           fontWeight: FontWeight.bold,
+    //           textAlign: TextAlignTitledContainer.left,
+    //           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+    //           child: Expanded(
+    //               child: Container(
+    //             width: double.infinity,
+    //             decoration: BoxDecoration(
+    //                 color: Theme.of(context).inputDecorationTheme.fillColor,
+    //                 border: Border.all(
+    //                   color: Theme.of(context).inputDecorationTheme.focusedBorder!.borderSide.color,
+    //                   width: 1.2,
+    //                 ),
+    //                 borderRadius: (Theme.of(context).inputDecorationTheme.focusedBorder! as OutlineInputBorder).borderRadius),
+    //             child: Padding(
+    //               padding: const EdgeInsets.fromLTRB(10.0, 16.0, 10.0, 16.0),
+    //               child: Text(text ?? '',
+    //                   style: getTextStyleSubTitle(context)!.merge(
+    //                         const TextStyle(fontWeight: FontWeight.normal),
+    //                       )),
+    //             ),
+    //           ))))
+    // ]);
   }
 
-  @override
-  Color? getOutlineTitledContainerColor(BuildContext context) {
-    return Theme.of(context).inputDecorationTheme.fillColor;
-  }
+  // TODO: May not be needed if not using the TitledContainer
+  // TODO: Broken by latest flutter, focusedBorder is always null?!?!
+  // @override
+  // BorderRadiusGeometry? getOutlineTitledContainerBorderRadius(
+  //     BuildContext context) {
+  //   // return (Theme.of(context).inputDecorationTheme.focusedBorder! as OutlineInputBorder).borderRadius;
+  //   return (Theme.of(context).inputDecorationTheme.border!
+  //           as OutlineInputBorder)
+  //       .borderRadius;
+  // }
 
-  @override
-  Color getOutlineTitledContainerColorBorder(BuildContext context) {
-    return Theme.of(context).inputDecorationTheme.focusedBorder!.borderSide.color;
-  }
+  // TODO: May not be needed if not using the TitledContainer
+  // @override
+  // Color? getOutlineTitledContainerColor(BuildContext context) {
+  //   return Theme.of(context).inputDecorationTheme.fillColor;
+  // }
 
-  @override
-  Color? getOutlineTitledContainerColorTitle(BuildContext context) {
-    return Theme.of(context).inputDecorationTheme.floatingLabelStyle!.color;
-  }
+  // TODO: May not be needed if not using the TitledContainer
+  // TODO: Broken by latest flutter, focusedBorder is always null?!?!
+  // @override
+  // Color getOutlineTitledContainerColorBorder(BuildContext context) {
+  //   // return Theme.of(context).inputDecorationTheme.focusedBorder!.borderSide.color;
+  //   // return Theme.of(context).inputDecorationTheme.border!.borderSide.color;
+  //   return Colors.red;
+  // }
 
-  @override
-  Color? getOutlineTitledContainerColorTitleAlt(BuildContext context) {
-    return Theme.of(context).inputDecorationTheme.focusedBorder!.borderSide.color;
-  }
+  // TODO: May not be needed if not using the TitledContainer
+  // TODO: Broken by latest flutter, focusedBorder is always null?!?!
+  // @override
+  // Color? getOutlineTitledContainerColorTitle(BuildContext context) {
+  //   // return Theme.of(context).inputDecorationTheme.floatingLabelStyle!.color;
+  //   // return Theme.of(context).primaryColor;
+  //   return Theme.of(context).textTheme.headlineLarge?.color;
+  // }
+
+  // TODO: May not be needed if not using the TitledContainer
+  // TODO: Broken by latest flutter, focusedBorder is always null?!?!
+  // @override
+  // Color? getOutlineTitledContainerColorTitleAlt(BuildContext context) {
+  //   // return Theme.of(context).inputDecorationTheme.focusedBorder?.borderSide.color;
+  //   // return Theme.of(context).inputDecorationTheme.border!.borderSide.color;
+  //   return Theme.of(context).textTheme.headlineLarge?.color;
+  // }
 
   @override
   double? getOutlineTitledContainerFontSize(BuildContext context) {
@@ -504,12 +704,14 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  showDialogAlert(BuildContext context, WidgetBuilder builder, Function(dynamic) onSuccess) {
+  showDialogAlert(BuildContext context, WidgetBuilder builder,
+      Function(dynamic) onSuccess) {
     showDialog(context: context, builder: builder).then(onSuccess);
   }
 
   @override
-  Future<Color?> showDialogColor(BuildContext context, {Color? previous, List<Color>? colorsOverride}) async {
+  Future<Color?> showDialogColor(BuildContext context,
+      {Color? previous, List<Color>? colorsOverride}) async {
     Color? colorOutput;
     await showDialog<Color>(
       context: context,
@@ -551,19 +753,23 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }) async {
     final bool? isConfirm = await showDialog<bool>(
       context: context,
-      builder: (_) => WillPopScope(
-        child: constructDialogConfirm(context, title: title, content: content),
-        onWillPop: () async {
+      builder: (_) => PopScope (
+        canPop: false,
+        onPopInvokedWithResult: (didPop, result) async {
+          if (didPop) {
+            return;
+          }
           Navigator.pop(context, false);
-          return true;
         },
+        child: constructDialogConfirm(context, title: title, content: content),
       ),
     );
     return isConfirm ?? false;
   }
 
   @override
-  Future<Uint8List?> showDialogImage(BuildContext context, {Uint8List? previous}) async {
+  Future<Uint8List?> showDialogImage(BuildContext context,
+      {Uint8List? previous}) async {
     final ImagePicker picker = ImagePicker();
     final XFile? photo = await picker.pickImage(source: ImageSource.camera);
     if (photo != null) {
@@ -573,7 +779,8 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }
 
   @override
-  Future<String?> showDialogSelection(BuildContext context, String? title, Map<String, String> selections) async {
+  Future<String?> showDialogSelection(BuildContext context, String? title,
+      Map<String, String> selections) async {
     String? identifier;
     await showDialog(
         context: context,
@@ -615,31 +822,66 @@ mixin MaterialPlatformMixin on PlatformMixin {
 
   @override
   TextStyle? textStyleHeading(BuildContext context) {
-    return Theme.of(context).textTheme.headline6;
+    return Theme.of(context).textTheme.titleLarge;
   }
 
   @override
   TextStyle? getTextStyleSubTitle(BuildContext context) {
-    return Theme.of(context).textTheme.subtitle1;
+    return Theme.of(context).textTheme.titleMedium;
   }
 
   @override
   TextStyle? textStyleText(BuildContext context) {
-    return Theme.of(context).textTheme.bodyText2;
+    return Theme.of(context).textTheme.bodyMedium;
   }
 
   _convertActionButtonLocation(String? actionButtonLocation) {
-    if (actionButtonLocation == FloatingActionButtonLocation.centerDocked.toString()) return FloatingActionButtonLocation.centerDocked;
-    if (actionButtonLocation == FloatingActionButtonLocation.centerFloat.toString()) return FloatingActionButtonLocation.centerFloat;
-    if (actionButtonLocation == FloatingActionButtonLocation.centerTop.toString()) return FloatingActionButtonLocation.centerTop;
-    if (actionButtonLocation == FloatingActionButtonLocation.endDocked.toString()) return FloatingActionButtonLocation.endDocked;
-    if (actionButtonLocation == FloatingActionButtonLocation.endFloat.toString()) return FloatingActionButtonLocation.endFloat;
-    if (actionButtonLocation == FloatingActionButtonLocation.endTop.toString()) return FloatingActionButtonLocation.endTop;
-    if (actionButtonLocation == FloatingActionButtonLocation.miniCenterDocked.toString()) return FloatingActionButtonLocation.miniCenterDocked;
-    if (actionButtonLocation == FloatingActionButtonLocation.miniCenterFloat.toString()) return FloatingActionButtonLocation.miniCenterFloat;
-    if (actionButtonLocation == FloatingActionButtonLocation.miniCenterTop.toString()) return FloatingActionButtonLocation.miniCenterTop;
-    if (actionButtonLocation == FloatingActionButtonLocation.miniEndDocked.toString()) return FloatingActionButtonLocation.miniEndDocked;
-    if (actionButtonLocation == FloatingActionButtonLocation.miniEndFloat.toString()) return FloatingActionButtonLocation.miniEndFloat;
-    if (actionButtonLocation == FloatingActionButtonLocation.miniEndTop.toString()) return FloatingActionButtonLocation.miniEndTop;
+    if (actionButtonLocation ==
+        FloatingActionButtonLocation.centerDocked.toString()) {
+      return FloatingActionButtonLocation.centerDocked;
+    }
+    if (actionButtonLocation ==
+        FloatingActionButtonLocation.centerFloat.toString()) {
+      return FloatingActionButtonLocation.centerFloat;
+    }
+    if (actionButtonLocation ==
+        FloatingActionButtonLocation.centerTop.toString()) {
+      return FloatingActionButtonLocation.centerTop;
+    }
+    if (actionButtonLocation ==
+        FloatingActionButtonLocation.endDocked.toString()) {
+      return FloatingActionButtonLocation.endDocked;
+    }
+    if (actionButtonLocation ==
+        FloatingActionButtonLocation.endFloat.toString()) {
+      return FloatingActionButtonLocation.endFloat;
+    }
+    if (actionButtonLocation == FloatingActionButtonLocation.endTop.toString()) {
+      return FloatingActionButtonLocation.endTop;
+    }
+    if (actionButtonLocation ==
+        FloatingActionButtonLocation.miniCenterDocked.toString()) {
+      return FloatingActionButtonLocation.miniCenterDocked;
+    }
+    if (actionButtonLocation ==
+        FloatingActionButtonLocation.miniCenterFloat.toString()) {
+      return FloatingActionButtonLocation.miniCenterFloat;
+    }
+    if (actionButtonLocation ==
+        FloatingActionButtonLocation.miniCenterTop.toString()) {
+      return FloatingActionButtonLocation.miniCenterTop;
+    }
+    if (actionButtonLocation ==
+        FloatingActionButtonLocation.miniEndDocked.toString()) {
+      return FloatingActionButtonLocation.miniEndDocked;
+    }
+    if (actionButtonLocation ==
+        FloatingActionButtonLocation.miniEndFloat.toString()) {
+      return FloatingActionButtonLocation.miniEndFloat;
+    }
+    if (actionButtonLocation ==
+        FloatingActionButtonLocation.miniEndTop.toString()) {
+      return FloatingActionButtonLocation.miniEndTop;
+    }
   }
 }

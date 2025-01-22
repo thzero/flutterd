@@ -47,7 +47,7 @@ abstract class BaseApplication {
   }
 
   static DeviceType get deviceType {
-    final data = MediaQueryData.fromWindow(WidgetsBinding.instance.window);
+    final data = MediaQueryData.fromView(WidgetsBinding.instance.platformDispatcher.views.single);
     return data.size.shortestSide < 550 ? DeviceType.phone : DeviceType.tablet; // TODO: dumb, why doesn't Flutter do this automatically?
   }
 }
