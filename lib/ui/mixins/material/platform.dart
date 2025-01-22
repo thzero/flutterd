@@ -837,39 +837,51 @@ mixin MaterialPlatformMixin on PlatformMixin {
 
   _convertActionButtonLocation(String? actionButtonLocation) {
     if (actionButtonLocation ==
-        FloatingActionButtonLocation.centerDocked.toString())
+        FloatingActionButtonLocation.centerDocked.toString()) {
       return FloatingActionButtonLocation.centerDocked;
+    }
     if (actionButtonLocation ==
-        FloatingActionButtonLocation.centerFloat.toString())
+        FloatingActionButtonLocation.centerFloat.toString()) {
       return FloatingActionButtonLocation.centerFloat;
+    }
     if (actionButtonLocation ==
-        FloatingActionButtonLocation.centerTop.toString())
+        FloatingActionButtonLocation.centerTop.toString()) {
       return FloatingActionButtonLocation.centerTop;
+    }
     if (actionButtonLocation ==
-        FloatingActionButtonLocation.endDocked.toString())
+        FloatingActionButtonLocation.endDocked.toString()) {
       return FloatingActionButtonLocation.endDocked;
+    }
     if (actionButtonLocation ==
-        FloatingActionButtonLocation.endFloat.toString())
+        FloatingActionButtonLocation.endFloat.toString()) {
       return FloatingActionButtonLocation.endFloat;
-    if (actionButtonLocation == FloatingActionButtonLocation.endTop.toString())
+    }
+    if (actionButtonLocation == FloatingActionButtonLocation.endTop.toString()) {
       return FloatingActionButtonLocation.endTop;
+    }
     if (actionButtonLocation ==
-        FloatingActionButtonLocation.miniCenterDocked.toString())
+        FloatingActionButtonLocation.miniCenterDocked.toString()) {
       return FloatingActionButtonLocation.miniCenterDocked;
+    }
     if (actionButtonLocation ==
-        FloatingActionButtonLocation.miniCenterFloat.toString())
+        FloatingActionButtonLocation.miniCenterFloat.toString()) {
       return FloatingActionButtonLocation.miniCenterFloat;
+    }
     if (actionButtonLocation ==
-        FloatingActionButtonLocation.miniCenterTop.toString())
+        FloatingActionButtonLocation.miniCenterTop.toString()) {
       return FloatingActionButtonLocation.miniCenterTop;
+    }
     if (actionButtonLocation ==
-        FloatingActionButtonLocation.miniEndDocked.toString())
+        FloatingActionButtonLocation.miniEndDocked.toString()) {
       return FloatingActionButtonLocation.miniEndDocked;
+    }
     if (actionButtonLocation ==
-        FloatingActionButtonLocation.miniEndFloat.toString())
+        FloatingActionButtonLocation.miniEndFloat.toString()) {
       return FloatingActionButtonLocation.miniEndFloat;
+    }
     if (actionButtonLocation ==
-        FloatingActionButtonLocation.miniEndTop.toString())
+        FloatingActionButtonLocation.miniEndTop.toString()) {
       return FloatingActionButtonLocation.miniEndTop;
+    }
   }
 }
