@@ -753,12 +753,15 @@ mixin MaterialPlatformMixin on PlatformMixin {
   }) async {
     final bool? isConfirm = await showDialog<bool>(
       context: context,
-      builder: (_) => WillPopScope(
-        child: constructDialogConfirm(context, title: title, content: content),
-        onWillPop: () async {
+      builder: (_) => PopScope (
+        canPop: false,
+        onPopInvokedWithResult: (didPop, result) async {
+          if (didPop) {
+            return;
+          }
           Navigator.pop(context, false);
-          return true;
         },
+        child: constructDialogConfirm(context, title: title, content: content),
       ),
     );
     return isConfirm ?? false;
